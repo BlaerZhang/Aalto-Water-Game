@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class MapManager : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class MapManager : MonoBehaviour
             for (int y = 0; y < mapHeight; y++)
             {
                 Vector2Int tilePosition = new Vector2Int(x, y);
-                GameObject tile = Instantiate(tilePrefabList[Random.Range(0,1)], GetTilePosition(tilePosition), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefabList[Random.Range(0,2)], GetTilePosition(tilePosition), Quaternion.identity);
                 tileMap[tilePosition] = tile;
             }
         }
@@ -30,7 +32,7 @@ public class MapManager : MonoBehaviour
 
     Vector3 GetTilePosition(Vector2Int tilePosition)
     {
-        float tileSize = tilePrefabList[Random.Range(0,1)].transform.localScale.x;
+        float tileSize = tilePrefabList[Random.Range(0,2)].transform.localScale.x;
         float halfTileSize = tileSize / 2f;
         float x = (tilePosition.x - tilePosition.y) * halfTileSize;
         float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;

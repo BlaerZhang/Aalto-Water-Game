@@ -27,4 +27,14 @@ public class TestTile : MonoBehaviour, ITile
     {
         throw new System.NotImplementedException();
     }
+    
+    private void OnMouseEnter()
+    {
+        transform.position += new Vector3(0, 0.1f, 0);
+    }
+    
+    private void OnMouseExit()
+    {
+        transform.position += new Vector3(0, -0.1f, 0);
+    }
 }
