@@ -20,10 +20,7 @@ public interface ITile
     /// <para>Top-Left; Top-Center; Top-Right; Middle-Left; Middle-Right; Bottom-Left; Bottom-Center; Bottom-Right</para>
     /// </param>
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
-    public TileType ApplyRulesAndGetNewType(List<ITile?> surroundingTiles)
-    {
-        
-    }
+    public abstract TileType ApplyRulesAndGetNewType(List<ITile?> surroundingTiles);
 
 }
 
