@@ -177,11 +177,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 61246136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d3f595c6ff815a4d9eb2ff38b3b5809, type: 3}
+  m_Script: {fileID: 11500000, guid: 20a0e06f54d0c884f98d50a335af1e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 8809038141439755308, guid: a6d281ac903aaf446a45c5217fbc0586, type: 3}
-  gridSize: {x: 10, y: 10}
+  tilePrefabList:
+  - {fileID: 8809038141439755308, guid: a6d281ac903aaf446a45c5217fbc0586, type: 3}
+  - {fileID: 8809038141439755308, guid: eb18fdc8c423a1841bd44e4f8eac3a01, type: 3}
+  mapWidth: 1000
+  mapHeight: 1000
 --- !u!1 &514207474
 GameObject:
   m_ObjectHideFlags: 0

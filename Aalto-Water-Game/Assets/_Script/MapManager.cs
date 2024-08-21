@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
-    public GameObject tilePrefab; // The tile prefab to be used
+    public List<GameObject> tilePrefabList; // The tile prefab to be used
     public int mapWidth = 10;
     public int mapHeight = 10;
 
@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
             for (int y = 0; y < mapHeight; y++)
             {
                 Vector2Int tilePosition = new Vector2Int(x, y);
-                GameObject tile = Instantiate(tilePrefab, GetTilePosition(tilePosition), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefabList[Random.Range(0,1)], GetTilePosition(tilePosition), Quaternion.identity);
                 tileMap[tilePosition] = tile;
             }
         }
@@ -30,7 +30,7 @@ public class MapManager : MonoBehaviour
 
     Vector3 GetTilePosition(Vector2Int tilePosition)
     {
-        float tileSize = tilePrefab.transform.localScale.x;
+        float tileSize = tilePrefabList[Random.Range(0,1)].transform.localScale.x;
         float halfTileSize = tileSize / 2f;
         float x = (tilePosition.x - tilePosition.y) * halfTileSize;
         float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;
