@@ -183,8 +183,8 @@ MonoBehaviour:
   tilePrefabList:
   - {fileID: 8809038141439755308, guid: a6d281ac903aaf446a45c5217fbc0586, type: 3}
   - {fileID: 8809038141439755308, guid: eb18fdc8c423a1841bd44e4f8eac3a01, type: 3}
-  mapWidth: 1000
-  mapHeight: 1000
+  mapWidth: 100
+  mapHeight: 100
 --- !u!1 &514207474
 GameObject:
   m_ObjectHideFlags: 0
