@@ -5,38 +5,74 @@ using Random = UnityEngine.Random;
 
 public class MapManager : MonoBehaviour
 {
-    public List<GameObject> tilePrefabList; // The tile prefab to be used
-    public int mapWidth = 10;
-    public int mapHeight = 10;
+    public List<GameObject> TilePrefabList; // The tile prefab to be used
+    private Dictionary<TileType, GameObject> TileTypeToPrefab; // Map from TileType to prefab
 
-    private Dictionary<Vector2Int, GameObject> tileMap;
+    /// <summary>
+    /// Number of horizontal tiles on the Map
+    /// </summary>
+    public int MapWidth = 100;
+
+    /// <summary>
+    /// Number of vertical tiles on the Map
+    /// </summary>
+    public int MapHeight = 100;
+
+    /// <summary>
+    /// Matrix of Tiles representing the Map.
+    /// </summary>
+    private Dictionary<Vector2Int, GameObject> Map;
+
+
+    /// <summary>
+    /// Initializes the mapping from TileType to the corresponding tile prefab dynamically using custom attributes.
+    /// </summary>
+    void InitializeTileTypeToPrefabMapping()
+    {
+        TileTypeToPrefab = new Dictionary<TileType, GameObject>();
+
+        foreach (TileType tileType in Enum.GetValues(typeof(TileType)))
+        {
+            var attribute = (TileType)tileType.GetType()
+                .GetField(tileType.ToString())
+                .GetCustomAttributes(typeof(TilePrefabIndexAttribute), false)
+                .FirstOrDefault();
+
+            if (attribute == null)
+            {
+                Debug.LogError($"No TilePrefabIndexAttribute found for TileType: {tileType}");
+                return;
+            }
+
+            int prefabIndex = attribute.PrefabIndex;
+            if (prefabIndex >= 0 && prefabIndex < TilePrefabList.Count)
+            {
+                TileType[tileType] = TilePrefabList[prefabIndex];
+            }
+            else
+            {
+                Debug.LogError($"Prefab index out of bounds for TileType: {tileType}");
+            }
+        }
+    }
 
     void Start()
     {
         tileMap = new Dictionary<Vector2Int, GameObject>();
+        InitiateTileTypesDictionary();
         GenerateMap();
     }
 
     void GenerateMap()
     {
-        for (int x = 0; x < mapWidth; x++)
+        for (int x = 0; x < MapWidth; x++)
         {
-            for (int y = 0; y < mapHeight; y++)
+            for (int y = 0; y < MapHeight; y++)
             {
-                Vector2Int tilePosition = new Vector2Int(x, y);
-                GameObject tile = Instantiate(tilePrefabList[Random.Range(0,2)], GetTilePosition(tilePosition), Quaternion.identity);
+                Tile tile = CreateTile(tilePrefabList[Random.Range(0, 2)], Vector2Int(x, y));
                 tileMap[tilePosition] = tile;
             }
         }
-    }
-
-    Vector3 GetTilePosition(Vector2Int tilePosition)
-    {
-        float tileSize = tilePrefabList[Random.Range(0,2)].transform.localScale.x;
-        float halfTileSize = tileSize / 2f;
-        float x = (tilePosition.x - tilePosition.y) * halfTileSize;
-        float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;
-        return new Vector3(x, y, 0f);
     }
 
     public GameObject GetTile(Vector2Int tilePosition)

@@ -5,8 +5,9 @@
 /// </summary>
 public enum TileType
 {
-	Water,
-	Plant,
-	Dirt,
-	Sand,
+    Water,
+    Grass,
+    Dirt,
+    Sand,
+    SaltyWater
 }
