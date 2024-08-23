@@ -1,3 +1,5 @@
+using Assets._Script.Tiles;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +7,29 @@ using UnityEngine;
 /// <summary>
 /// Class that implements the basic behaviour of the Tiles in the Map.
 /// </summary>
-public abstract class Tile: Monobehavior
+public abstract class Tile: MonoBehaviour
 {
     #region Properties
+
+    [SerializeField]
+    public static List<GameObject> TilePrefabs = new List<GameObject>();
 
     /// <summary>
     /// Type of terrain that the tile represents.
     /// </summary>
     public TileType Type { get; set; }
 
-    public GameObject TileObject { get; }
+    public GameObject TileSprite { get; }
 
-    public Vector3 Position { get => TileObject.Position; }
+    public Vector3 Position { get => TileSprite.transform.position; }
 
     #endregion Properties
 
     #region Constructor
 
-    public abstract Tile(TileType type, Vector2 tilePosition)
+    public Tile(TileType type, Vector2Int tilePosition)
     {
-        TileObject = Instantiate(tileType, GetTilePosition(tilePosition), Quaternion.identity);
+        TileSprite = new TileSprite(type);
         Type = type;
     }
 
@@ -39,7 +44,7 @@ public abstract class Tile: Monobehavior
     /// <returns>3D Vector representing the tile's position on the Map.</returns>
     private static Vector3 GetTilePosition(Vector2Int tilePosition)
     {
-        float tileSize = tilePrefabList[Random.Range(0, 2)].transform.localScale.x;
+        float tileSize = TileSprite.transform.localScale.x;
         float halfTileSize = tileSize / 2f;
         float x = (tilePosition.x - tilePosition.y) * halfTileSize;
         float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;
@@ -56,7 +61,7 @@ public abstract class Tile: Monobehavior
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
     public abstract TileType ApplyRulesAndGetNewType(List<Tile?> surroundingTiles);
 
-    public Tile CreateTile(TileType type, Vector2Int position)
+    public static Tile CreateTile(TileType type, Vector2Int position)
     {
         switch (type)
         {
@@ -72,7 +77,8 @@ public abstract class Tile: Monobehavior
                 return new SaltyWaterTile(position);
             // Add cases for other tile types
             default:
-                throw new ArgumentException("Unknown tile type");
+                Debug.Log($"Tile type {type.ToString()} does not exist");
+                return null;
         }
     }
 

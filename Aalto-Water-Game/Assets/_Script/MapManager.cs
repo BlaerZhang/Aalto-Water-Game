@@ -21,45 +21,11 @@ public class MapManager : MonoBehaviour
     /// <summary>
     /// Matrix of Tiles representing the Map.
     /// </summary>
-    private Dictionary<Vector2Int, GameObject> Map;
-
-
-    /// <summary>
-    /// Initializes the mapping from TileType to the corresponding tile prefab dynamically using custom attributes.
-    /// </summary>
-    void InitializeTileTypeToPrefabMapping()
-    {
-        TileTypeToPrefab = new Dictionary<TileType, GameObject>();
-
-        foreach (TileType tileType in Enum.GetValues(typeof(TileType)))
-        {
-            var attribute = (TileType)tileType.GetType()
-                .GetField(tileType.ToString())
-                .GetCustomAttributes(typeof(TilePrefabIndexAttribute), false)
-                .FirstOrDefault();
-
-            if (attribute == null)
-            {
-                Debug.LogError($"No TilePrefabIndexAttribute found for TileType: {tileType}");
-                return;
-            }
-
-            int prefabIndex = attribute.PrefabIndex;
-            if (prefabIndex >= 0 && prefabIndex < TilePrefabList.Count)
-            {
-                TileType[tileType] = TilePrefabList[prefabIndex];
-            }
-            else
-            {
-                Debug.LogError($"Prefab index out of bounds for TileType: {tileType}");
-            }
-        }
-    }
+    private Dictionary<Vector2Int, Tile> Map;
 
     void Start()
     {
-        tileMap = new Dictionary<Vector2Int, GameObject>();
-        InitiateTileTypesDictionary();
+        Map = new Dictionary<Vector2Int, Tile>();
         GenerateMap();
     }
 
@@ -69,16 +35,18 @@ public class MapManager : MonoBehaviour
         {
             for (int y = 0; y < MapHeight; y++)
             {
-                Tile tile = CreateTile(tilePrefabList[Random.Range(0, 2)], Vector2Int(x, y));
-                tileMap[tilePosition] = tile;
+                var position = new Vector2Int(x, y);
+                var tileTypeInt = Random.Range(0, 3);
+                Tile tile = Tile.CreateTile((TileType)tileTypeInt, position);
+                Map[position] = tile;
             }
         }
     }
 
     public GameObject GetTile(Vector2Int tilePosition)
     {
-        if (tileMap.TryGetValue(tilePosition, out GameObject tile))
-            return tile;
+        if (Map.TryGetValue(tilePosition, out Tile tile))
+            return tile.TileSprite;
         return null;
     }
 }
