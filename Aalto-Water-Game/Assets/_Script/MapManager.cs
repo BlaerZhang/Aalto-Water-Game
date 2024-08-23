@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
     /// Matrix of Tiles representing the Map.
     /// </summary>
     private Dictionary<Vector2Int, Tile> Map;
-
+    
     void Start()
     {
         Map = new Dictionary<Vector2Int, Tile>();
@@ -37,7 +37,8 @@ public class MapManager : MonoBehaviour
             {
                 var position = new Vector2Int(x, y);
                 var tileTypeInt = Random.Range(0, 3);
-                Tile tile = Tile.CreateTile((TileType)tileTypeInt, position);
+                GameObject tileSprite = Instantiate(TilePrefabList[tileTypeInt], Tile.GetTilePosition(position), Quaternion.identity);
+                Tile tile = Tile.CreateTile((TileType)tileTypeInt, position, tileSprite);
                 Map[position] = tile;
             }
         }
@@ -46,7 +47,7 @@ public class MapManager : MonoBehaviour
     public GameObject GetTile(Vector2Int tilePosition)
     {
         if (Map.TryGetValue(tilePosition, out Tile tile))
-            return tile.TileSprite;
+            return tile.Sprite;
         return null;
     }
 }

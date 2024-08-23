@@ -1,4 +1,3 @@
-using Assets._Script.Tiles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,29 +6,26 @@ using UnityEngine;
 /// <summary>
 /// Class that implements the basic behaviour of the Tiles in the Map.
 /// </summary>
-public abstract class Tile: MonoBehaviour
+public abstract class Tile
 {
     #region Properties
-
-    [SerializeField]
-    public static List<GameObject> TilePrefabs = new List<GameObject>();
 
     /// <summary>
     /// Type of terrain that the tile represents.
     /// </summary>
     public TileType Type { get; set; }
 
-    public GameObject TileSprite { get; }
+    public GameObject Sprite { get; }
 
-    public Vector3 Position { get => TileSprite.transform.position; }
+    public Vector3 Position { get => Sprite.transform.position; }
 
     #endregion Properties
 
     #region Constructor
 
-    public Tile(TileType type, Vector2Int tilePosition)
+    public Tile(TileType type, Vector2Int tilePosition, GameObject sprite)
     {
-        TileSprite = new TileSprite(type);
+        Sprite = sprite;
         Type = type;
     }
 
@@ -42,9 +38,9 @@ public abstract class Tile: MonoBehaviour
     /// </summary>
     /// <param name="tilePosition">d(x, y) coordinates of the tile in a cartesian plane.</param>
     /// <returns>3D Vector representing the tile's position on the Map.</returns>
-    private static Vector3 GetTilePosition(Vector2Int tilePosition)
+    public static Vector3 GetTilePosition(Vector2Int tilePosition)
     {
-        float tileSize = TileSprite.transform.localScale.x;
+        float tileSize = 1f;
         float halfTileSize = tileSize / 2f;
         float x = (tilePosition.x - tilePosition.y) * halfTileSize;
         float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;
@@ -59,22 +55,22 @@ public abstract class Tile: MonoBehaviour
     /// <para>Top-Left; Top-Center; Top-Right; Middle-Left; Middle-Right; Bottom-Left; Bottom-Center; Bottom-Right</para>
     /// </param>
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
-    public abstract TileType ApplyRulesAndGetNewType(List<Tile?> surroundingTiles);
+    public abstract TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles);
 
-    public static Tile CreateTile(TileType type, Vector2Int position)
+    public static Tile CreateTile(TileType type, Vector2Int position, GameObject sprite)
     {
         switch (type)
         {
             case TileType.Water:
-                return new WaterTile(position);
+                return new WaterTile(position, sprite);
             case TileType.Grass:
-                return new GrassTile(position);
+                return new GrassTile(position, sprite);
             case TileType.Dirt:
-                return new DirtTile(position);
+                return new DirtTile(position, sprite);
             case TileType.Sand:
-                return new SandTile(position);
+                return new SandTile(position, sprite);
             case TileType.SaltyWater:
-                return new SaltyWaterTile(position);
+                return new SaltyWaterTile(position, sprite);
             // Add cases for other tile types
             default:
                 Debug.Log($"Tile type {type.ToString()} does not exist");

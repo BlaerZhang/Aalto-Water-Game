@@ -1,13 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets._Script.Tiles
-{
-    public class TileSprite
+    public class TileSprite : MonoBehaviour
     {
         public GameObject Sprite { get; private set; }
 
-        public TileSprite(TileType type, Vector3Int position)
+        public TileSprite(TileType type, Vector3 position)
         {
             GameObject spriteObject;
             switch (type)
@@ -31,7 +29,7 @@ namespace Assets._Script.Tiles
                 default:
                     throw new ArgumentException("Unknown tile type");
             }
+
             Sprite = Instantiate(spriteObject, position, Quaternion.identity);
         }
     }
-}
