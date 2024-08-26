@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class MapManager : MonoBehaviour
 {
-    public List<GameObject> TilePrefabList; // The tile prefab to be used
-    private Dictionary<TileType, GameObject> TileTypeToPrefab; // Map from TileType to prefab
+    #region Constants
 
     /// <summary>
     /// Number of horizontal tiles on the Map
@@ -21,16 +21,34 @@ public class MapManager : MonoBehaviour
     public int MapHeight = 100;
 
     /// <summary>
+    /// The Map is updated every *MapUpdateInterval* seconds
+    /// </summary>
+    public float MapUpdateInterval = 5f;
+
+    #endregion Constants
+
+    #region Properties 
+
+    public List<GameObject> TilePrefabList; // The tile prefab to be used
+
+    private Dictionary<TileType, GameObject> TileTypeToPrefab; // Map from TileType to prefab
+
+
+
+    /// <summary>
     /// Matrix of Tiles representing the Map.
     /// </summary>
     private Dictionary<Vector2Int, Tile> Map;
-    
+
+    #endregion Properties
+
     void Start()
     {
         Map = new Dictionary<Vector2Int, Tile>();
         GenerateMap();
 
-        InvokeRepeating("UpdateMap", 5f, 5f);
+        // Update the map periodically according to the Tile's rules
+        InvokeRepeating("UpdateMap", MapUpdateInterval, MapUpdateInterval);
     }
 
     void GenerateMap()
@@ -63,39 +81,52 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void UpdateTiles(Dictionary<Vector2Int, TileType> newTilesTypes)
+    /// <summary>
+    /// Updates the tiles on the Map according to the parameter passed.
+    /// </summary>
+    /// <param name="newTilesTypes">{[Key-Coordinates]: [Value-Tile's new Type]}: The key refers to the Tile that should be updated in the Map. The Type refers to the Type that the new tile will have</param>
+    /// <param name="baseDelay">Delay in seconds between each tile update (set to 0 to make the change instantaneous).</param>
+    private void UpdateTilesRandom(Dictionary<Vector2Int, TileType> newTilesTypes, float baseDelay=0.005f)
     {
-        foreach (var kvp in newTilesTypes)
+        // Convert the dictionary to a list for shuffling
+        var tileList = newTilesTypes.ToList();
+
+        // Shuffle the list using Unity's Random class
+        for (int i = 0; i < tileList.Count; i++)
         {
+            var temp = tileList[i];
+            int randomIndex = Random.Range(i, tileList.Count);
+            tileList[i] = tileList[randomIndex];
+            tileList[randomIndex] = temp;
+        }
+
+        // Loop through the shuffled list and update the tiles
+        for (int i = 0; i < tileList.Count; i++)
+        {
+            var kvp = tileList[i];
             Vector2Int position = kvp.Key;
             TileType newTileType = kvp.Value;
 
-            Map[position].Sprite.transform.DOScale(0, 0.1f).OnComplete(() =>
+            // Introduce a staggered delay for each tile update
+            float delay = i * baseDelay; // Adjust the delay to control the stagger effect
+
+            // Scale down, destroy, and replace the tile with a delay
+            Map[position].Sprite.transform.DOScale(0, 0.1f).SetDelay(delay).OnComplete(() =>
             {
                 // Destroy the existing tile GameObject
                 Destroy(Map[position].Sprite);
 
                 // Instantiate the new tile sprite and create the Tile object
-                GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType],
-                    Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+                GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
                 tileSprite.transform.localScale = Vector3.zero;
                 Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
 
                 // Update the Map dictionary with the new tile
                 Map[position] = tile;
-                
+
+                // Scale up the new tile with a smooth animation
                 tileSprite.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic);
             });
-
-            // // Destroy the existing tile GameObject
-            // Destroy(Map[position].Sprite);
-            //
-            // // Instantiate the new tile sprite and create the Tile object
-            // GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
-            // Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
-            //
-            // // Update the Map dictionary with the new tile
-            // Map[position] = tile;
         }
     }
 
@@ -119,7 +150,7 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        UpdateTiles(tilesToChange);
+        UpdateTilesRandom(tilesToChange);
     }
 
     private List<Tile> GetSurroundingTiles(Vector2Int position)
