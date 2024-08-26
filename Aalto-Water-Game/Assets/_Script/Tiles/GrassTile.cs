@@ -1,6 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GrassTile : Tile
 {
@@ -8,6 +8,6 @@ public class GrassTile : Tile
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
-        return this.Type;
+        return (TileType)Random.Range(1, 3);
     }
 }
