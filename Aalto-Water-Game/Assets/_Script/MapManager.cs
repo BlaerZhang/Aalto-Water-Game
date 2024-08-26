@@ -25,6 +25,8 @@ public class MapManager : MonoBehaviour
     /// </summary>
     [Range(5, 15)] public float MapUpdateInterval = 5f;
 
+    public static MapManager Instance;
+
     #endregion Constants
 
     #region Properties 
@@ -46,6 +48,11 @@ public class MapManager : MonoBehaviour
     private Dictionary<Vector2Int, Tile> Map;
 
     #endregion Properties
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -203,13 +210,14 @@ public class MapManager : MonoBehaviour
         return true;
     }
 
-    public void PlaceBuilding(Vector3 tilePosition, BuildingType type) 
+    public void PlaceBuilding(Vector3 tilePosition) 
     {
         var tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
+        var buildingType = GameManager.Instance.UIManager.CurrentBuildingType;
 
         // Instantiate the new tile sprite and create the Tile object
-        GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)type], Tile.ConvertCoordinatesToIsometric(tileKey), Quaternion.identity);
-        var building = Building.CreateBuilding(type, tileKey, buildingSprite);
+        GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], Tile.ConvertCoordinatesToIsometric(tileKey), Quaternion.identity);
+        var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite);
 
         // Destroy the existing tile GameObject
         Destroy(Map[tileKey].Sprite);

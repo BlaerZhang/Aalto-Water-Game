@@ -9,17 +9,18 @@ public class CursorManager : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
-    // private BuildingType _currentBuildingType = BuildingType.Dessalinator;
 
     private void OnEnable()
     {
         OnMouseHoverOnTile += UpdateCursor;
+        UIManager.OnSelectedBuildingTypeChanged += ChangeCursor;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnDisable()
     {
         OnMouseHoverOnTile -= UpdateCursor;
+        UIManager.OnSelectedBuildingTypeChanged -= ChangeCursor;
     }
 
     // Start is called before the first frame update
@@ -41,7 +42,7 @@ public class CursorManager : MonoBehaviour
         _spriteRenderer.enabled = display;
     }
 
-    void ChangeCursor()
+    void ChangeCursor(BuildingType buildingType)
     {
         
     }
