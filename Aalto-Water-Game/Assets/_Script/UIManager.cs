@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,20 +20,25 @@ public class UIManager : MonoBehaviour
     
     public static Action<BuildingType> OnSelectedBuildingTypeChanged;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> BuildingButtonList;
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        OnSelectedBuildingTypeChanged += UpdateUI;
+    }
+    
+    private void OnDisable()
+    {
+        OnSelectedBuildingTypeChanged -= UpdateUI;
+    }
+    
     void Update()
     {
         // Scrolling up (forward)
-        if (Input.GetAxis("Mouse ScrollWheel") > 0.1f)
+        if (Input.GetAxis("Mouse ScrollWheel") <= -0.1f)
             CurrentBuildingType = (BuildingType)(((int)CurrentBuildingType + 1) % GameManager.Instance.BuildingTypeCount);
         // Scrolling down (backward)
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0.1f)
+        else if (Input.GetAxis("Mouse ScrollWheel") >= 0.1f)
             CurrentBuildingType = (BuildingType)(((int)CurrentBuildingType - 1 + GameManager.Instance.BuildingTypeCount) % GameManager.Instance.BuildingTypeCount);
     }
 
@@ -41,8 +47,13 @@ public class UIManager : MonoBehaviour
         CurrentBuildingType = (BuildingType)selectedBuildingType;
     }
 
-    public void UpdateUI()
+    public void UpdateUI(BuildingType selectedBuildingType)
     {
-        
+        foreach (var button in BuildingButtonList)
+        {
+            if (button.transform.localScale.x > 1) button.transform.DOScale(Vector3.one, 0.1f);
+        }
+
+        BuildingButtonList[(int)selectedBuildingType].transform.DOScale(1.5f, 0.1f).SetEase(Ease.InElastic);
     }
 }

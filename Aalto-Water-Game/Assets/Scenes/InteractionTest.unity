@@ -223,11 +223,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1618331691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 140.625}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220511016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,11 +298,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1186246392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 121.875}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255346535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56f5392ff75f174a82fe1a3458fee16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapManager: {fileID: 0}
   UIManager: {fileID: 0}
+  BuildingTypeCount: 3
 --- !u!1 &407860711
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86397a2958119d4ab4e6f16e04a74eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuildingButtonList:
+  - {fileID: 1186246391}
+  - {fileID: 259568337}
+  - {fileID: 1618331690}
 --- !u!1 &447451010
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,11 +606,11 @@ RectTransform:
   - {fileID: 1618331691}
   m_Father: {fileID: 522261660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 200}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &447451012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,15 +620,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 447451010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 0
-    m_Top: 0
+    m_Right: 50
+    m_Top: 50
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 2
   m_Spacing: 50
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -1490,11 +1496,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 259568338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 68.75}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057815635
 MonoBehaviour:
   m_ObjectHideFlags: 0

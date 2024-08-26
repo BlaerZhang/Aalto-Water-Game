@@ -45,7 +45,6 @@ public class CursorManager : MonoBehaviour
 
     void ChangeCursor(BuildingType buildingType)
     {
-        print((int)buildingType);
         _spriteRenderer.sprite = BuildingSpriteList[(int)buildingType];
     }
 }
