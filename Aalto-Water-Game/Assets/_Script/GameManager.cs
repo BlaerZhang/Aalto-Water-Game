@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public UIManager UIManager;
 
+    public int BuildingTypeCount = Enum.GetValues(typeof(BuildingType)).Length;
+
     private void Awake()
     {
         if (Instance == null)
