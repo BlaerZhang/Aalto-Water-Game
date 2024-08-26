@@ -1370,6 +1370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134ad9e38cb411e48acc267b8c355c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuildingSpriteList:
+  - {fileID: 21300000, guid: 0b4722d3352e5fb46a7b26cd49c09d44, type: 3}
+  - {fileID: 21300000, guid: ebcd6596f0f4d1942af0eed2705e3e23, type: 3}
+  - {fileID: 21300000, guid: 25bd1b3c11fba7c4598c82cd5d7330c9, type: 3}
 --- !u!1 &1053235702
 GameObject:
   m_ObjectHideFlags: 0

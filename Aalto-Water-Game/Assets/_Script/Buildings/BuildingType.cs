@@ -7,5 +7,5 @@ public enum BuildingType
 {
     Dessalinator,
     Sprinkler,
-    Reservoir
+    Reservoir,
 }

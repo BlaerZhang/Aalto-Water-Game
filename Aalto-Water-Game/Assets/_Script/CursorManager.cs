@@ -8,6 +8,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
+    public List<Sprite> BuildingSpriteList;
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
 
     private void OnEnable()
@@ -44,6 +45,7 @@ public class CursorManager : MonoBehaviour
 
     void ChangeCursor(BuildingType buildingType)
     {
-        
+        print((int)buildingType);
+        _spriteRenderer.sprite = BuildingSpriteList[(int)buildingType];
     }
 }
