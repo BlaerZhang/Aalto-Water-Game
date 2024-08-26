@@ -180,12 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a0e06f54d0c884f98d50a335af1e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapWidth: 50
+  MapHeight: 50
+  MapUpdateInterval: 5
   TilePrefabList:
   - {fileID: 536776303747783722, guid: 153660ed6f34bc04cb8aa54a1eefc3bd, type: 3}
   - {fileID: 5017861872163802277, guid: 6d2bf616c7877964aa1f63d925506d41, type: 3}
   - {fileID: 4979802234605648719, guid: 18b76e98882fc0241b7bfdcb4fb9896b, type: 3}
-  MapWidth: 50
-  MapHeight: 50
 --- !u!1 &259568337
 GameObject:
   m_ObjectHideFlags: 0
