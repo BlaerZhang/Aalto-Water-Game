@@ -28,17 +28,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Inputs
-        if (Input.GetAxis("Mouse ScrollWheel") >= 0.1f)
-        {
-            CurrentBuildingType =
-                (BuildingType)((int)(CurrentBuildingType + 1) % (System.Enum.GetValues(typeof(BuildingType)).Length));
-        }
-        
-        if (Input.GetAxis("Mouse ScrollWheel") <= -0.1f)
-        {
-            CurrentBuildingType = CurrentBuildingType > 0? (BuildingType)((int)CurrentBuildingType - 1) : (BuildingType)System.Enum.GetValues(typeof(BuildingType)).Length;
-        }
+        // Scrolling up (forward)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0.1f)
+            CurrentBuildingType = (BuildingType)(((int)CurrentBuildingType + 1) % GameManager.Instance.BuildingTypeCount);
+        // Scrolling down (backward)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0.1f)
+            CurrentBuildingType = (BuildingType)(((int)CurrentBuildingType - 1 + GameManager.Instance.BuildingTypeCount) % GameManager.Instance.BuildingTypeCount);
     }
 
     public void UpdateCurrentBuildingType(int selectedBuildingType)

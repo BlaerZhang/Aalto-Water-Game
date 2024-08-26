@@ -6,9 +6,13 @@ public class Building : Tile
 {
     public BuildingType BuildingType {get; private set;}
 
-    public Building(BuildingType type, Vector2Int tilePosition, GameObject sprite): base(TileType.Building, tilePosition, sprite)
+    public GameObject BuildingSprite { get; private set;}
+
+    public Building(BuildingType type, Vector2Int tilePosition, GameObject buildingSprite, GameObject dirtTileSprite)
+        : base(TileType.Building, tilePosition, dirtTileSprite)
     {
         BuildingType = type;
+        BuildingSprite = buildingSprite;
     }
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
@@ -16,16 +20,16 @@ public class Building : Tile
         return this.Type;
     }
 
-    public static Building CreateBuilding(BuildingType type, Vector2Int position, GameObject sprite)
+    public static Building CreateBuilding(BuildingType type, Vector2Int position, GameObject buildingSprite, GameObject dirtTileSprite)
     {
         switch (type)
         {
             case BuildingType.Dessalinator:
-                return new DessalinatorBuilding(position, sprite);
+                return new DessalinatorBuilding(position, buildingSprite, dirtTileSprite);
             case BuildingType.Sprinkler:
-                return new SprinklerBuilding(position, sprite);
+                return new SprinklerBuilding(position, buildingSprite, dirtTileSprite);
             case BuildingType.Reservoir:
-                return new ReservoirBuilding(position, sprite);
+                return new ReservoirBuilding(position, buildingSprite, dirtTileSprite);
             // Add cases for other building types
             default:
                 Debug.Log($"Building type {type.ToString()} does not exist");

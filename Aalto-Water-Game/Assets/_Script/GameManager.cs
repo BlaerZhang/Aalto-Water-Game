@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public MapManager MapManager;
+
     [HideInInspector] public UIManager UIManager;
+
+    public int BuildingTypeCount = Enum.GetValues(typeof(BuildingType)).Length;
 
     private void Awake()
     {

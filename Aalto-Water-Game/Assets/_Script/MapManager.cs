@@ -25,8 +25,6 @@ public class MapManager : MonoBehaviour
     /// </summary>
     [Range(5, 15)] public float MapUpdateInterval = 5f;
 
-    public static MapManager Instance;
-
     #endregion Constants
 
     #region Properties 
@@ -49,11 +47,6 @@ public class MapManager : MonoBehaviour
 
     #endregion Properties
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     void Start()
     {
         Map = new Dictionary<Vector2Int, Tile>();
@@ -61,9 +54,11 @@ public class MapManager : MonoBehaviour
 
         // Update the map periodically according to the Tile's rules
         InvokeRepeating("UpdateMap", MapUpdateInterval, MapUpdateInterval);
+
+        GameManager.Instance.MapManager = this;
     }
 
-    void GenerateMap()
+    public void GenerateMap()
     {
         int xOffset = MapWidth / 2;
         int yOffset = MapHeight / 2;
@@ -215,12 +210,15 @@ public class MapManager : MonoBehaviour
         var tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
         var buildingType = GameManager.Instance.UIManager.CurrentBuildingType;
 
-        // Instantiate the new tile sprite and create the Tile object
-        GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], Tile.ConvertCoordinatesToIsometric(tileKey), Quaternion.identity);
-        var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite);
+        GameObject dirtSprite = Map[tileKey].Sprite;
+        if (Map[tileKey].Type != TileType.Dirt)
+        {
+            dirtSprite = Instantiate(TilePrefabList[(int)TileType.Dirt], tilePosition, Quaternion.identity);
+            Destroy(Map[tileKey].Sprite);  // Destroy the existing old sprite
+        }
 
-        // Destroy the existing tile GameObject
-        Destroy(Map[tileKey].Sprite);
+        GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], tilePosition, Quaternion.identity);
+        var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
 
         Map[tileKey] = building;
     }
