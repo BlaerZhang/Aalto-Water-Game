@@ -45,4 +45,9 @@ public class UIManager : MonoBehaviour
     {
         CurrentBuildingType = (BuildingType)selectedBuildingType;
     }
+
+    public void UpdateUI()
+    {
+        
+    }
 }
