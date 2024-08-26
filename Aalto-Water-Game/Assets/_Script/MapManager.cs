@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using DG.Tweening;
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
 
@@ -69,15 +70,32 @@ public class MapManager : MonoBehaviour
             Vector2Int position = kvp.Key;
             TileType newTileType = kvp.Value;
 
-            // Destroy the existing tile GameObject
-            Destroy(Map[position].Sprite);
+            Map[position].Sprite.transform.DOScale(0, 0.1f).OnComplete(() =>
+            {
+                // Destroy the existing tile GameObject
+                Destroy(Map[position].Sprite);
 
-            // Instantiate the new tile sprite and create the Tile object
-            GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
-            Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
+                // Instantiate the new tile sprite and create the Tile object
+                GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType],
+                    Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+                tileSprite.transform.localScale = Vector3.zero;
+                Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
 
-            // Update the Map dictionary with the new tile
-            Map[position] = tile;
+                // Update the Map dictionary with the new tile
+                Map[position] = tile;
+                
+                tileSprite.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic);
+            });
+
+            // // Destroy the existing tile GameObject
+            // Destroy(Map[position].Sprite);
+            //
+            // // Instantiate the new tile sprite and create the Tile object
+            // GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+            // Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
+            //
+            // // Update the Map dictionary with the new tile
+            // Map[position] = tile;
         }
     }
 

@@ -8,6 +8,6 @@ public class WaterTile: Tile
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
-        return (TileType)UnityEngine.Random.Range(1, 3);
+        return (TileType)UnityEngine.Random.Range(0, 3);
     }
 }

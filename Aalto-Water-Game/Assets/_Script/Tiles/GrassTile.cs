@@ -8,6 +8,6 @@ public class GrassTile : Tile
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
-        return (TileType)Random.Range(1, 3);
+        return (TileType)Random.Range(0, 3);
     }
 }
