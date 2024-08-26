@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -56,6 +57,35 @@ public abstract class Tile
     /// </param>
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
     public abstract TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles);
+
+    public static TileType GetTileBasedOnSurrounding(List<Tile> surroundingTiles)
+    {
+        var typeCounts = surroundingTiles
+        .Where(tile => tile != null) // Filter out null tiles
+        .GroupBy(tile => tile.Type)  // Group by TileType
+        .ToDictionary(group => group.Key, group => group.Count());
+
+        // Check if the surrounding tiles contain enough Water tiles
+        if (typeCounts.ContainsKey(TileType.Water) &&  typeCounts[TileType.Water] > 3 && UnityEngine.Random.value > 0.75f)
+        {
+            return TileType.Water; // Make this tile water if surrounded by mostly water and random condition met
+        }
+
+        // Check if the surrounding tiles contain enough Dirt tiles
+        if (typeCounts.ContainsKey(TileType.Dirt) && typeCounts[TileType.Dirt] > 2 && UnityEngine.Random.value > 0.55f)
+        {
+            return TileType.Water; // Make this tile water if surrounded by mostly dirt and random condition met
+        }
+
+        // Check if the surrounding tiles contain enough Dirt tiles
+        if (typeCounts.ContainsKey(TileType.Grass) && typeCounts[TileType.Grass] <= 3 && UnityEngine.Random.value > 0.30f)
+        {
+            return TileType.Grass; // Make this tile water if surrounded by mostly dirt and random condition met
+        }
+
+        // Default case
+        return TileType.Dirt;
+    }
 
     public static Tile CreateTile(TileType type, Vector2Int position, GameObject sprite)
     {
