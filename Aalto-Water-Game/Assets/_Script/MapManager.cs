@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
+using UnityEngine.UIElements;
 
 public class MapManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class MapManager : MonoBehaviour
     {
         Map = new Dictionary<Vector2Int, Tile>();
         GenerateMap();
+
+        InvokeRepeating("UpdateMap", 5f, 5f);
     }
 
     void GenerateMap()
@@ -48,7 +51,7 @@ public class MapManager : MonoBehaviour
                 TileType tileType = Tile.GetTileBasedOnSurrounding(surroundingTiles);
 
                 // Instantiate the tile sprite at the calculated position
-                GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.GetTilePosition(position), Quaternion.identity);
+                GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
 
                 // Create the tile using the selected type and position
                 Tile tile = Tile.CreateTile(tileType, position, tileSprite);
@@ -57,6 +60,48 @@ public class MapManager : MonoBehaviour
                 Map[position] = tile;
             }
         }
+    }
+
+    private void UpdateTiles(Dictionary<Vector2Int, TileType> newTilesTypes)
+    {
+        foreach (var kvp in newTilesTypes)
+        {
+            Vector2Int position = kvp.Key;
+            TileType newTileType = kvp.Value;
+
+            // Destroy the existing tile GameObject
+            Destroy(Map[position].Sprite);
+
+            // Instantiate the new tile sprite and create the Tile object
+            GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+            Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
+
+            // Update the Map dictionary with the new tile
+            Map[position] = tile;
+        }
+    }
+
+    void UpdateMap()
+    {
+        int xOffset = MapWidth / 2;
+        int yOffset = MapHeight / 2;
+
+        Dictionary<Vector2Int, TileType> tilesToChange = new Dictionary<Vector2Int, TileType>();
+
+        for (int x = 0; x < MapWidth; x++)
+        {
+            for (int y = 0; y < MapHeight; y++)
+            {
+                var position = new Vector2Int(x - xOffset, y - yOffset);
+                var surroundingTiles = GetSurroundingTiles(position);
+                TileType tileType = Map[position].ApplyRulesAndGetNewType(surroundingTiles);
+
+                if (tileType != Map[position].Type)
+                    tilesToChange[position] = tileType;
+            }
+        }
+
+        UpdateTiles(tilesToChange);
     }
 
     private List<Tile> GetSurroundingTiles(Vector2Int position)

@@ -8,6 +8,6 @@ public class DirtTile : Tile
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
-        throw new NotImplementedException();
+        return (TileType)UnityEngine.Random.Range(1, 3);
     }
 }

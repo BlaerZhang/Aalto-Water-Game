@@ -39,7 +39,7 @@ public abstract class Tile
     /// </summary>
     /// <param name="tilePosition">d(x, y) coordinates of the tile in a cartesian plane.</param>
     /// <returns>3D Vector representing the tile's position on the Map.</returns>
-    public static Vector3 GetTilePosition(Vector2Int tilePosition)
+    public static Vector3 ConvertCoordinatesToIsometric(Vector2Int tilePosition)
     {
         float tileSize = 1f;
         float halfTileSize = tileSize / 2f;
@@ -47,6 +47,23 @@ public abstract class Tile
         float y = (tilePosition.x + tilePosition.y) * halfTileSize * 0.5f;
 
         return new Vector3(x, y, 0f);
+    }
+
+    /// <summary>
+    /// Create the xy coordinates from the isometric position of the Tile.
+    /// </summary>
+    /// <param name="tilePosition">d(x, y, z) isometric coordinates of the tile.</param>
+    /// <returns>2D Vector representing the tile's key in the Map Dictionary.</returns>
+    public static Vector2Int ConvertIsometricToCoordinates(Vector3 isoPosition)
+    {
+        float tileSize = 1f;
+        float halfTileSize = tileSize / 2f;
+
+        // Reverse the isometric transformation
+        int x = Mathf.RoundToInt((isoPosition.x / halfTileSize + isoPosition.y / (halfTileSize * 0.5f)) / 2);
+        int y = Mathf.RoundToInt((isoPosition.y / (halfTileSize * 0.5f) - isoPosition.x / halfTileSize) / 2);
+
+        return new Vector2Int(x, y);
     }
 
     /// <summary>
