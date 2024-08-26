@@ -28,6 +28,8 @@ public class MapManager : MonoBehaviour
     {
         Map = new Dictionary<Vector2Int, Tile>();
         GenerateMap();
+
+        InvokeRepeating("UpdateMap", 5f, 5f);
     }
 
     void GenerateMap()
@@ -62,12 +64,19 @@ public class MapManager : MonoBehaviour
 
     private void UpdateTiles(Dictionary<Vector2Int, TileType> newTilesTypes)
     {
-        foreach (var position in newTilesTypes.Keys)
+        foreach (var kvp in newTilesTypes)
         {
-            TileType newTileType = newTilesTypes[position];
+            Vector2Int position = kvp.Key;
+            TileType newTileType = kvp.Value;
+
+            // Destroy the existing tile GameObject
+            Destroy(Map[position].Sprite);
+
+            // Instantiate the new tile sprite and create the Tile object
             GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
             Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
 
+            // Update the Map dictionary with the new tile
             Map[position] = tile;
         }
     }
