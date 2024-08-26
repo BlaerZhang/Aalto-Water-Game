@@ -9,6 +9,7 @@ public class CursorManager : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
+    // private BuildingType _currentBuildingType = BuildingType.Dessalinator;
 
     private void OnEnable()
     {
@@ -36,7 +37,7 @@ public class CursorManager : MonoBehaviour
     void UpdateCursor(Vector2 position, bool placeable, bool display)
     {
         transform.position = position;
-        _spriteRenderer.color = placeable ? Color.green : Color.red;
+        _spriteRenderer.color = placeable ? new Color(0,1,0,0.7f) : new Color(1,0,0,0.7f); //set color based on placeable state
         _spriteRenderer.enabled = display;
     }
 
