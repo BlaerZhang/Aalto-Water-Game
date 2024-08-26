@@ -9,7 +9,7 @@ public class TileInteraction : MonoBehaviour
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        CursorManager.OnMouseHoverOnTile?.Invoke(transform.position, MapManager.Instance.BuildingIsPossibleOnTile(transform.position), true);
+        CursorManager.OnMouseHoverOnTile?.Invoke(transform.position, GameManager.Instance.MapManager.BuildingIsPossibleOnTile(transform.position), true);
     }
 
     private void OnMouseExit()
@@ -20,6 +20,6 @@ public class TileInteraction : MonoBehaviour
     private void OnMouseUpAsButton()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        MapManager.Instance.PlaceBuilding(transform.position);
+        GameManager.Instance.MapManager.PlaceBuilding(transform.position);
     }
 }

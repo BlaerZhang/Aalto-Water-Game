@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public MapManager MapManager;
+
     [HideInInspector] public UIManager UIManager;
 
     private void Awake()
