@@ -9,5 +9,6 @@ public enum TileType
     Grass,
     Dirt,
     Sand,
-    SaltyWater
+    SaltyWater,
+    Building
 }
