@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: In-world UI
+    uniqueID: 2843004825
+    locked: 0
