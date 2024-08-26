@@ -29,10 +29,15 @@ public class MapManager : MonoBehaviour
 
     #region Properties 
 
-    public List<GameObject> TilePrefabList; // The tile prefab to be used
+    /// <summary>
+    /// The tile prefab (sprites) to be used
+    /// </summary>
+    public List<GameObject> TilePrefabList;
 
-    private Dictionary<TileType, GameObject> TileTypeToPrefab; // Map from TileType to prefab
-
+    /// <summary>
+    /// The building prefab (sprites) to be used
+    /// </summary>
+    public List<GameObject> BuildingPrefabList;
 
 
     /// <summary>
@@ -192,4 +197,32 @@ public class MapManager : MonoBehaviour
             return tile.Sprite;
         return null;
     }
+
+    public bool BuildingIsPossibleOnTile(Vector3 tilePosition)
+    {
+        return true;
+    }
+
+    public void PlaceBuilding(Vector3 tilePosition, BuildingType type) 
+    {
+        var tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
+
+        // Instantiate the new tile sprite and create the Tile object
+        GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)type], Tile.ConvertCoordinatesToIsometric(tileKey), Quaternion.identity);
+        var building = Building.CreateBuilding(type, tileKey, buildingSprite);
+
+        // Destroy the existing tile GameObject
+        Destroy(Map[tileKey].Sprite);
+
+        Map[tileKey] = building;
+    }
+
+    public void RemoveBuilding(Vector3 tilePosition)
+    {
+        var tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
+
+        var updateDict = new Dictionary<Vector2Int, TileType>() { { tileKey, TileType.Dirt } };
+        UpdateTilesRandom(updateDict);
+    }
+
 }
