@@ -51,9 +51,8 @@ public class UIManager : MonoBehaviour
     {
         foreach (var button in BuildingButtonList)
         {
-            if (button.transform.localScale.x > 1) button.transform.DOScale(Vector3.one, 0.1f);
+            if (button != BuildingButtonList[(int)selectedBuildingType]) button.transform.DOScale(1, 0.1f);
+            else BuildingButtonList[(int)selectedBuildingType].transform.DOScale(1.5f, 0.1f).SetEase(Ease.InElastic);
         }
-
-        BuildingButtonList[(int)selectedBuildingType].transform.DOScale(1.5f, 0.1f).SetEase(Ease.InElastic);
     }
 }
