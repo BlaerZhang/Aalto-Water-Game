@@ -10,11 +10,13 @@ public class CursorManager : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public List<Sprite> BuildingSpriteList;
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
+    public static Action<Vector2, bool> OnMouseClickOnTile;
 
     private void OnEnable()
     {
         OnMouseHoverOnTile += UpdateCursor;
         UIManager.OnSelectedBuildingTypeChanged += ChangeCursor;
+        OnMouseClickOnTile += OnCursorClickOnTile;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -22,6 +24,7 @@ public class CursorManager : MonoBehaviour
     {
         OnMouseHoverOnTile -= UpdateCursor;
         UIManager.OnSelectedBuildingTypeChanged -= ChangeCursor;
+        OnMouseClickOnTile -= OnCursorClickOnTile;
     }
 
     // Start is called before the first frame update
@@ -36,9 +39,9 @@ public class CursorManager : MonoBehaviour
         
     }
 
-    void UpdateCursor(Vector2 position, bool placeable, bool display)
+    void UpdateCursor(Vector2 tilePosition, bool placeable, bool display)
     {
-        transform.position = position;
+        transform.position = tilePosition;
         _spriteRenderer.color = placeable ? new Color(0,1,0,0.7f) : new Color(1,0,0,0.7f); //set color based on placeable state
         _spriteRenderer.enabled = display;
     }
@@ -46,5 +49,16 @@ public class CursorManager : MonoBehaviour
     void ChangeCursor(BuildingType buildingType)
     {
         _spriteRenderer.sprite = BuildingSpriteList[(int)buildingType];
+    }
+
+    void OnCursorClickOnTile(Vector2 tilePosition, bool isPlaceable)
+    {
+        if (isPlaceable) GameManager.Instance.MapManager.PlaceBuilding(tilePosition);
+        else
+        {
+            //feedback
+            //TODO play feedback sound
+            transform.DOShakePosition(0.1f, 0.15f, 200);
+        }
     }
 }

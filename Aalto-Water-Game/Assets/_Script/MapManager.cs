@@ -235,7 +235,7 @@ public class MapManager : MonoBehaviour
     public void RemoveBuilding(Vector3 tileIsometricPosition)
     {
         var tilePosition  = Tile.ConvertIsometricToCoordinates(tileIsometricPosition);
-
+        if (Map[tilePosition].Type != TileType.Building) return;
         CreateNewTile(TileType.Dirt, tilePosition, out GameObject tileSprite);
     }
 

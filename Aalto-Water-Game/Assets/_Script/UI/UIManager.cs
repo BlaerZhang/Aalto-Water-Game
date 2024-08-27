@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,14 +24,18 @@ public class UIManager : MonoBehaviour
     
     public List<GameObject> BuildingButtonList;
 
+    public GameObject BuildingTooltip;
+
+    public Slider ProgressBar;
+
     private void OnEnable()
     {
-        OnSelectedBuildingTypeChanged += UpdateUI;
+        OnSelectedBuildingTypeChanged += UpdateButtonUI;
     }
     
     private void OnDisable()
     {
-        OnSelectedBuildingTypeChanged -= UpdateUI;
+        OnSelectedBuildingTypeChanged -= UpdateButtonUI;
     }
     
     void Update()
@@ -47,13 +53,28 @@ public class UIManager : MonoBehaviour
         CurrentBuildingType = (BuildingType)selectedBuildingType;
     }
 
-    public void UpdateUI(BuildingType selectedBuildingType)
+    public void UpdateButtonUI(BuildingType selectedBuildingType)
     {
         foreach (var button in BuildingButtonList)
         {
-            if (button.transform.localScale.x > 1) button.transform.DOScale(Vector3.one, 0.1f);
+            if (button != BuildingButtonList[(int)selectedBuildingType]) button.transform.DOScale(1, 0.1f);
+            else BuildingButtonList[(int)selectedBuildingType].transform.DOScale(1.5f, 0.1f).SetEase(Ease.InElastic);
         }
+    }
 
-        BuildingButtonList[(int)selectedBuildingType].transform.DOScale(1.5f, 0.1f).SetEase(Ease.InElastic);
+    public void UpdateProgressBar(float percentage)
+    {
+        ProgressBar.DOValue(percentage, 0.25f);
+    }
+
+    public void ShowTooltip(float anchoredPosY, string tooltipText)
+    {
+        BuildingTooltip.GetComponentInChildren<TMP_Text>().text = tooltipText; // Set text
+        BuildingTooltip.GetComponent<RectTransform>().DOAnchorPosY(anchoredPosY, 0f); // Set Y Pos
+        BuildingTooltip.SetActive(true);
+    }
+    public void HideTooltip()
+    {
+        BuildingTooltip.SetActive(false);
     }
 }
