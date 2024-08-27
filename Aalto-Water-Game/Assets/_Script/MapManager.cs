@@ -79,9 +79,6 @@ public class MapManager : MonoBehaviour
 
                 // Instantiate the tile sprite at the calculated position
                 GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
-                
-                // Set Parent of tileSprite
-                tileSprite.transform.parent = transform;
 
                 // Create the tile using the selected type and position
                 Tile tile = Tile.CreateTile(tileType, position, tileSprite);
@@ -124,24 +121,27 @@ public class MapManager : MonoBehaviour
             // Scale down, destroy, and replace the tile with a delay
             Map[position].Sprite.transform.DOScale(0, 0.1f).SetDelay(delay).OnComplete(() =>
             {
-                // Destroy the existing tile GameObject
-                Destroy(Map[position].Sprite);
-
-                // Instantiate the new tile sprite and create the Tile object
-                GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
-                tileSprite.transform.localScale = Vector3.zero;
-                Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
-                
-                // Set Parent of tileSprite
-                tileSprite.transform.parent = transform;
-
-                // Update the Map dictionary with the new tile
-                Map[position] = tile;
+                CreateNewTile(newTileType, position, out GameObject tileSprite);
 
                 // Scale up the new tile with a smooth animation
                 tileSprite.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic);
             });
         }
+    }
+
+    private void CreateNewTile(TileType type, Vector2Int position, out GameObject tileSprite)
+    {
+        // Destroy the existing tile GameObject
+        Map[position].Destroy();
+
+        // Instantiate the new tile sprite and create the Tile object
+        tileSprite = Instantiate(TilePrefabList[(int)type], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+        tileSprite.transform.localScale = Vector3.zero;
+
+        Tile tile = Tile.CreateTile(type, position, tileSprite);
+
+        // Update the Map dictionary with the new tile
+        Map[position] = tile;
     }
 
     void UpdateMap()
@@ -223,23 +223,20 @@ public class MapManager : MonoBehaviour
         if (Map[tileKey].Type != TileType.Dirt)
         {
             dirtSprite = Instantiate(TilePrefabList[(int)TileType.Dirt], tilePosition, Quaternion.identity);
-            dirtSprite.transform.parent = transform; // Set Parent of tileSprite
             Destroy(Map[tileKey].Sprite);  // Destroy the existing old sprite
         }
 
         GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], tilePosition, Quaternion.identity);
-        buildingSprite.transform.parent = transform; // Set Parent of tileSprite
         var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
 
         Map[tileKey] = building;
     }
 
-    public void RemoveBuilding(Vector3 tilePosition)
+    public void RemoveBuilding(Vector3 tileIsometricPosition)
     {
-        var tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
-
-        var updateDict = new Dictionary<Vector2Int, TileType>() { { tileKey, TileType.Dirt } };
-        UpdateTilesRandom(updateDict);
+        var tilePosition  = Tile.ConvertIsometricToCoordinates(tileIsometricPosition);
+        if (Map[tilePosition].Type != TileType.Building) return;
+        CreateNewTile(TileType.Dirt, tilePosition, out GameObject tileSprite);
     }
 
 }

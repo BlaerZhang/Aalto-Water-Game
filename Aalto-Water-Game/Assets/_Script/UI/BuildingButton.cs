@@ -14,13 +14,13 @@ public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        StopCoroutine(ShowTooltip());
+        StopAllCoroutines();
         GameManager.Instance.UIManager.HideTooltip();
     }
 
     IEnumerator ShowTooltip()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         GameManager.Instance.UIManager.ShowTooltip(GetComponent<RectTransform>().anchoredPosition.y, tooltipText);
     }
 }

@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,14 +26,16 @@ public class UIManager : MonoBehaviour
 
     public GameObject BuildingTooltip;
 
+    public Slider ProgressBar;
+
     private void OnEnable()
     {
-        OnSelectedBuildingTypeChanged += UpdateUI;
+        OnSelectedBuildingTypeChanged += UpdateButtonUI;
     }
     
     private void OnDisable()
     {
-        OnSelectedBuildingTypeChanged -= UpdateUI;
+        OnSelectedBuildingTypeChanged -= UpdateButtonUI;
     }
     
     void Update()
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
         CurrentBuildingType = (BuildingType)selectedBuildingType;
     }
 
-    public void UpdateUI(BuildingType selectedBuildingType)
+    public void UpdateButtonUI(BuildingType selectedBuildingType)
     {
         foreach (var button in BuildingButtonList)
         {
@@ -59,10 +62,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateProgressBar(float percentage)
+    {
+        ProgressBar.DOValue(percentage, 0.25f);
+    }
+
     public void ShowTooltip(float anchoredPosY, string tooltipText)
     {
         BuildingTooltip.GetComponentInChildren<TMP_Text>().text = tooltipText; // Set text
-        BuildingTooltip.GetComponent<RectTransform>().DOAnchorPosY(anchoredPosY, 0.5f); // Set Y Pos
+        BuildingTooltip.GetComponent<RectTransform>().DOAnchorPosY(anchoredPosY, 0f); // Set Y Pos
         BuildingTooltip.SetActive(true);
     }
     public void HideTooltip()

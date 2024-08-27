@@ -860,6 +860,7 @@ MonoBehaviour:
   - {fileID: 259568337}
   - {fileID: 1618331690}
   BuildingTooltip: {fileID: 32099224}
+  ProgressBar: {fileID: 1616284750}
 --- !u!1 &430444726
 GameObject:
   m_ObjectHideFlags: 0

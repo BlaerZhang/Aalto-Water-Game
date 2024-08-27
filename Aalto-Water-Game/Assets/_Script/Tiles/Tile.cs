@@ -134,6 +134,11 @@ public abstract class Tile
         }
     }
 
+    public virtual void Destroy()
+    {
+        UnityEngine.Object.Destroy(Sprite);
+    }
+
     #endregion Methods
 }
 
