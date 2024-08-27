@@ -39,7 +39,7 @@ public class Building : Tile
 
     public override void Destroy()
     {
-        base.Destroy();
+        Object.Destroy(Sprite);
         Object.Destroy(BuildingSprite);
     }
 }
