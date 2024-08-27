@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         OnSelectedBuildingTypeChanged += UpdateButtonUI;
+        CSVReader.ReadCSV(0);
     }
     
     private void OnDisable()
