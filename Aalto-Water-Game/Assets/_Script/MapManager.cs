@@ -78,6 +78,9 @@ public class MapManager : MonoBehaviour
 
                 // Instantiate the tile sprite at the calculated position
                 GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+                
+                // Set Parent of tileSprite
+                tileSprite.transform.parent = transform;
 
                 // Create the tile using the selected type and position
                 Tile tile = Tile.CreateTile(tileType, position, tileSprite);
@@ -127,6 +130,9 @@ public class MapManager : MonoBehaviour
                 GameObject tileSprite = Instantiate(TilePrefabList[(int)newTileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
                 tileSprite.transform.localScale = Vector3.zero;
                 Tile tile = Tile.CreateTile(newTileType, position, tileSprite);
+                
+                // Set Parent of tileSprite
+                tileSprite.transform.parent = transform;
 
                 // Update the Map dictionary with the new tile
                 Map[position] = tile;
@@ -214,10 +220,12 @@ public class MapManager : MonoBehaviour
         if (Map[tileKey].Type != TileType.Dirt)
         {
             dirtSprite = Instantiate(TilePrefabList[(int)TileType.Dirt], tilePosition, Quaternion.identity);
+            dirtSprite.transform.parent = transform; // Set Parent of tileSprite
             Destroy(Map[tileKey].Sprite);  // Destroy the existing old sprite
         }
 
         GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], tilePosition, Quaternion.identity);
+        buildingSprite.transform.parent = transform; // Set Parent of tileSprite
         var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
 
         Map[tileKey] = building;
