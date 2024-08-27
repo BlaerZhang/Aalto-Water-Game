@@ -20,7 +20,7 @@ public class TileInteraction : MonoBehaviour
     private void OnMouseUpAsButton()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        GameManager.Instance.MapManager.PlaceBuilding(transform.position);
+        CursorManager.OnMouseClickOnTile?.Invoke(transform.position, GameManager.Instance.MapManager.BuildingIsPossibleOnTile(transform.position));
     }
 
     private void OnMouseOver()
