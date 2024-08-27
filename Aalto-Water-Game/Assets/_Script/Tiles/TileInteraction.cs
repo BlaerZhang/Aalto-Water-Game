@@ -22,4 +22,9 @@ public class TileInteraction : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
         GameManager.Instance.MapManager.PlaceBuilding(transform.position);
     }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1)) GameManager.Instance.MapManager.RemoveBuilding(transform.position);
+    }
 }
