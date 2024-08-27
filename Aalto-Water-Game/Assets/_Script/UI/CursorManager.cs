@@ -58,7 +58,7 @@ public class CursorManager : MonoBehaviour
         {
             //feedback
             //TODO play feedback sound
-            transform.DOLocalMoveX(0.2f, 0.5f).SetEase(Ease.Flash,10,0.5f);
+            transform.DOShakePosition(0.1f, 0.15f, 200);
         }
     }
 }

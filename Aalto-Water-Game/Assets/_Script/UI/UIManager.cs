@@ -18,8 +18,6 @@ public class UIManager : MonoBehaviour
         }
     }
     private BuildingType _buildingType;
-
-    private float _hoverTimer = 0f;
     
     public static Action<BuildingType> OnSelectedBuildingTypeChanged;
     
