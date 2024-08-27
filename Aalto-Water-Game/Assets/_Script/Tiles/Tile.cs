@@ -91,20 +91,8 @@ public abstract class Tile
     {
         var typeCounts = CountTypes(surroundingTiles);
 
-        // Check if the surrounding tiles contain enough Water tiles
-        if (typeCounts.ContainsKey(TileType.Water) &&  typeCounts[TileType.Water] > 3 && UnityEngine.Random.value > 0.75f)
-        {
-            return TileType.Water; // Make this tile water if surrounded by mostly water and random condition met
-        }
-
         // Check if the surrounding tiles contain enough Dirt tiles
         if (typeCounts.ContainsKey(TileType.Dirt) && typeCounts[TileType.Dirt] > 2 && UnityEngine.Random.value > 0.55f)
-        {
-            return TileType.Water; // Make this tile water if surrounded by mostly dirt and random condition met
-        }
-
-        // Check if the surrounding tiles contain enough Dirt tiles
-        if (typeCounts.ContainsKey(TileType.Grass) && typeCounts[TileType.Grass] <= 3 && UnityEngine.Random.value > 0.30f)
         {
             return TileType.Grass; // Make this tile water if surrounded by mostly dirt and random condition met
         }

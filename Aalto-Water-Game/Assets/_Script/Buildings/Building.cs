@@ -17,7 +17,7 @@ public class Building : Tile
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
-        return this.Type;
+        return TileType.Building;
     }
 
     public static Building CreateBuilding(BuildingType type, Vector2Int position, GameObject buildingSprite, GameObject dirtTileSprite)
@@ -39,7 +39,9 @@ public class Building : Tile
 
     public override void Destroy()
     {
-        Object.Destroy(Sprite);
+        // If it is a Dirt Tile it will be recicled by the MapManager when destroying the building
+        if (Type == TileType.Dirt)
+            Object.Destroy(Sprite);
         Object.Destroy(BuildingSprite);
     }
 }

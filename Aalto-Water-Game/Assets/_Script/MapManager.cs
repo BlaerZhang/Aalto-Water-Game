@@ -51,7 +51,9 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         Map = new Dictionary<Vector2Int, Tile>();
-        GenerateMap();
+        // GenerateMap();
+        // Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(0);
+        // GenerateMapFromDictionary(mapAsDictionary);
 
         // Update the map periodically according to the Tile's rules
         InvokeRepeating("UpdateMap", MapUpdateInterval, MapUpdateInterval);
@@ -89,6 +91,41 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    private Dictionary<Vector2Int, TileType> CenterMapCoordinates(Dictionary<Vector2Int, TileType> originalMapDictionary)
+    {
+        // Step 1: Calculate the map dimensions
+        int mapWidth = originalMapDictionary.Keys.Max(key => key.x) + 1;
+        int mapHeight = originalMapDictionary.Keys.Max(key => key.y) + 1;
+
+        // Step 2: Calculate the offset to center the map
+        int offsetX = mapWidth / 2;
+        int offsetY = mapHeight / 2;
+
+        // Step 3: Create a new dictionary with centered coordinates
+        var centeredMapDict = new Dictionary<Vector2Int, TileType>();
+
+        foreach (var kvp in originalMapDictionary)
+        {
+            // Original position
+            Vector2Int originalPosition = kvp.Key;
+
+            // Step 4: Apply the offset to shift the coordinates
+            Vector2Int centeredPosition = new Vector2Int(originalPosition.x - offsetX, originalPosition.y - offsetY);
+
+            // Add the new centered position to the new dictionary
+            centeredMapDict[centeredPosition] = kvp.Value;
+        }
+
+        // Step 5: Replace the original dictionary with the centered one
+        return centeredMapDict;
+    }
+
+    public void GenerateMapFromDictionary(Dictionary<Vector2Int, TileType> mapAsDictionary)
+    {
+        var centeredMapAsDictionary = CenterMapCoordinates(mapAsDictionary);
+        UpdateTilesRandom(centeredMapAsDictionary);
+    }
+
     /// <summary>
     /// Updates the tiles on the Map according to the parameter passed.
     /// </summary>
@@ -118,14 +155,19 @@ public class MapManager : MonoBehaviour
             // Introduce a staggered delay for each tile update
             float delay = i * baseDelay; // Adjust the delay to control the stagger effect
 
-            // Scale down, destroy, and replace the tile with a delay
-            Map[position].Sprite.transform.DOScale(0, 0.1f).SetDelay(delay).OnComplete(() =>
+            if (Map.TryGetValue(position, out Tile tile))
             {
-                CreateNewTile(newTileType, position, out GameObject tileSprite);
+                // Scale down, destroy, and replace the tile with a delay
+                tile.Sprite.transform.DOScale(0, 0.1f).SetDelay(delay).OnComplete(() =>
+                {
+                    CreateNewTile(newTileType, position, out GameObject tileSprite);
 
-                // Scale up the new tile with a smooth animation
-                tileSprite.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic);
-            });
+                    // Scale up the new tile with a smooth animation
+                    tileSprite.transform.DOScale(1, 0.3f).SetEase(Ease.OutElastic);
+                });
+            }
+            else
+                CreateNewTile(newTileType, position, out GameObject tileSprite);
         }
     }
 
@@ -236,7 +278,7 @@ public class MapManager : MonoBehaviour
     {
         var tilePosition  = Tile.ConvertIsometricToCoordinates(tileIsometricPosition);
         if (Map[tilePosition].Type != TileType.Building) return;
+
         CreateNewTile(TileType.Dirt, tilePosition, out GameObject tileSprite);
     }
-
 }
