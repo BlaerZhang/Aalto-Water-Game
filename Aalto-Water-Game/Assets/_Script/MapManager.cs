@@ -51,9 +51,8 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         Map = new Dictionary<Vector2Int, Tile>();
-        // GenerateMap();
-        // Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(0);
-        // GenerateMapFromDictionary(mapAsDictionary);
+        GenerateMap();
+        GenerateMapFromDictionary();
 
         // Update the map periodically according to the Tile's rules
         InvokeRepeating("UpdateMap", MapUpdateInterval, MapUpdateInterval);
@@ -120,9 +119,15 @@ public class MapManager : MonoBehaviour
         return centeredMapDict;
     }
 
-    public void GenerateMapFromDictionary(Dictionary<Vector2Int, TileType> mapAsDictionary)
+    public void GenerateMapFromDictionary()
     {
+        Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(0, out int mapWidth, out int mapHeight);
+
+        MapHeight = mapHeight;
+        MapWidth = mapWidth;
+
         var centeredMapAsDictionary = CenterMapCoordinates(mapAsDictionary);
+
         UpdateTilesRandom(centeredMapAsDictionary);
     }
 
@@ -167,14 +172,14 @@ public class MapManager : MonoBehaviour
                 });
             }
             else
-                CreateNewTile(newTileType, position, out GameObject tileSprite);
+                CreateNewTile(newTileType, position, out GameObject tileSprite, false);
         }
     }
 
-    private void CreateNewTile(TileType type, Vector2Int position, out GameObject tileSprite)
+    private void CreateNewTile(TileType type, Vector2Int position, out GameObject tileSprite, bool destroyPreviousTile=true)
     {
         // Destroy the existing tile GameObject
-        Map[position].Destroy();
+        if (destroyPreviousTile) Map[position].Destroy();
 
         // Instantiate the new tile sprite and create the Tile object
         tileSprite = Instantiate(TilePrefabList[(int)type], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
@@ -199,9 +204,14 @@ public class MapManager : MonoBehaviour
             {
                 var position = new Vector2Int(x - xOffset, y - yOffset);
                 var surroundingTiles = GetSurroundingTiles(position);
-                TileType tileType = Map[position].ApplyRulesAndGetNewType(surroundingTiles);
 
-                if (tileType != Map[position].Type)
+                TileType tileType = TileType.Dirt;
+                if (Map.TryGetValue(position, out Tile tile))
+                    tileType = tile.ApplyRulesAndGetNewType(surroundingTiles);
+                else
+                    continue;
+
+                if (tileType != tile.Type)
                     tilesToChange[position] = tileType;
             }
         }

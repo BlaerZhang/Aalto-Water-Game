@@ -28,9 +28,12 @@ public class CSVReader
         return mapDict;
     }
 
-    public static Dictionary<Vector2Int, TileType> ReadCSV(int levelIndex)
+    public static Dictionary<Vector2Int, TileType> ReadCSV(int levelIndex, out int mapWidth, out int mapHeight)
     {
         Dictionary<Vector2Int, TileType> mapDict = new Dictionary<Vector2Int, TileType>();
+
+        mapWidth = 0;
+        mapHeight = 0;
 
         // Load the CSV file from Resources folder
         TextAsset csvFile = Resources.Load<TextAsset>($"level{levelIndex}");
@@ -42,13 +45,13 @@ public class CSVReader
 
         // Split the text into lines
         string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-        int mapHeight = splitLine.Length;
+        mapHeight = splitLine.Length;
 
         for (int y = 0; y < mapHeight; y++)
         {
             // Split each line into grid cells
             string[] splitGrid = splitLine[y].Split(',');
-            int mapWidth = splitGrid.Length;
+            mapWidth = splitGrid.Length;
 
             for (int x = 0; x < mapWidth; x++)
             {
