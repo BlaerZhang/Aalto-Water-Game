@@ -36,5 +36,11 @@ public class Building : Tile
                 return null;
         }
     }
+
+    public override void Destroy()
+    {
+        base.Destroy();
+        Object.Destroy(BuildingSprite);
+    }
 }
 
