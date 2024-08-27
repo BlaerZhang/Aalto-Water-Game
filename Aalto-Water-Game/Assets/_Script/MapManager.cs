@@ -5,6 +5,7 @@ using DG.Tweening;
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
 using System.Linq;
+using UnityEditor.U2D.Aseprite;
 
 public class MapManager : MonoBehaviour
 {
@@ -202,7 +203,9 @@ public class MapManager : MonoBehaviour
 
     public bool BuildingIsPossibleOnTile(Vector3 tilePosition)
     {
-        return true;
+        Vector2Int tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
+
+        return (Map[tileKey] != null && Map[tileKey].Type != TileType.Water && Map[tileKey].Type != TileType.Building);
     }
 
     public void PlaceBuilding(Vector3 tilePosition) 

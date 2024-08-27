@@ -75,12 +75,21 @@ public abstract class Tile
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
     public abstract TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles);
 
+    /// <summary>
+    /// Counts the number of each TileType in a list of Tiles (usually the ones surrouning a specific Tile)
+    /// </summary>
+    /// <param name="surroundingTiles"></param>
+    public static Dictionary<TileType, int> CountTypes(List<Tile> surroundingTiles)
+    {
+        return surroundingTiles
+            .Where(tile => tile != null) // Filter out null tiles
+            .GroupBy(tile => tile.Type)  // Group by TileType
+            .ToDictionary(group => group.Key, group => group.Count());
+    }
+
     public static TileType GetTileBasedOnSurrounding(List<Tile> surroundingTiles)
     {
-        var typeCounts = surroundingTiles
-        .Where(tile => tile != null) // Filter out null tiles
-        .GroupBy(tile => tile.Type)  // Group by TileType
-        .ToDictionary(group => group.Key, group => group.Count());
+        var typeCounts = CountTypes(surroundingTiles);
 
         // Check if the surrounding tiles contain enough Water tiles
         if (typeCounts.ContainsKey(TileType.Water) &&  typeCounts[TileType.Water] > 3 && UnityEngine.Random.value > 0.75f)
