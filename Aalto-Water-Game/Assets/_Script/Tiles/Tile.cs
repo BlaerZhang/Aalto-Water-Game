@@ -28,6 +28,9 @@ public abstract class Tile
     {
         Sprite = sprite;
         Type = type;
+
+        if (Type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && Type != TileType.Building) 
+           GameManager.Instance.LevelManager.CurrentTileNumber += 1;
     }
 
     #endregion Constructor
@@ -125,6 +128,8 @@ public abstract class Tile
     public virtual void Destroy()
     {
         UnityEngine.Object.Destroy(Sprite);
+        if (Type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && Type != TileType.Building)
+           GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
     }
 
     #endregion Methods

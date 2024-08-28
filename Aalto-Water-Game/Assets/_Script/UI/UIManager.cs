@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
 
     public Slider ProgressBar;
 
+    public Image Mask;
+
     [Header("End Screen")]
     public GameObject levelCompleteScreen;
     public GameObject levelFailedScreen;
@@ -92,5 +94,21 @@ public class UIManager : MonoBehaviour
     {
         levelCompleteScreen.SetActive(false);
         levelFailedScreen.SetActive(false);
+    }
+    
+    public void LoadNextLevel()
+    {
+        Mask.color = Color.clear;
+        Mask.gameObject.SetActive(true);
+        Mask.DOFade(1, 1).OnComplete(() =>
+        {
+            GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex + 1);
+            HideEndScreen();
+            Mask.color = Color.black;
+            Mask.DOFade(0, 1).OnComplete(() =>
+            {
+                Mask.gameObject.SetActive(false);
+            });
+        });
     }
 }

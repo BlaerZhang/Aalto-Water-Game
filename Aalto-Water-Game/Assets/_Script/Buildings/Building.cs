@@ -13,6 +13,14 @@ public class Building : Tile
     {
         BuildingType = type;
         BuildingSprite = buildingSprite;
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
+        {
+            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
+                BuildingType)
+            {
+                GameManager.Instance.LevelManager.CurrentTileNumber += 1;
+            }
+        }
     }
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
@@ -42,7 +50,7 @@ public class Building : Tile
         switch (type)
         {
             case BuildingType.Dessalinator:
-                return DessalinatorBuilding.CanBuildAccordingToRules(surroundingTiles);
+                return true;
             case BuildingType.Sprinkler:
                 return true;
             case BuildingType.Reservoir:
@@ -60,6 +68,14 @@ public class Building : Tile
         if (Type == TileType.Dirt)
             Object.Destroy(Sprite);
         Object.Destroy(BuildingSprite);
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
+        {
+            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
+                BuildingType)
+            {
+                GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
+            }
+        }
     }
 }
 

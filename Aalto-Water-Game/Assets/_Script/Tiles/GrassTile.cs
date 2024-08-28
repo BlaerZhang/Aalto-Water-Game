@@ -7,10 +7,7 @@ public class GrassTile : Tile
     private float HumidityLevel = Random.Range(2, MaxHumidityLevel);
     private float DryingSpeed = Random.Range(0.2f, 1);
 
-    public GrassTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Grass, tilePosition, sprite)
-    {
-        // += 1
-    }
+    public GrassTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Grass, tilePosition, sprite) { }
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {
@@ -25,11 +22,5 @@ public class GrassTile : Tile
         }
 
         return this.Type;
-    }
-
-    public override void Destroy()
-    {
-        base.Destroy();
-        // -= 1
     }
 }

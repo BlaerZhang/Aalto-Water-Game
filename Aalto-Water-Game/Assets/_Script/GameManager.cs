@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,16 +28,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        UIManager = GetComponentInChildren<UIManager>();
+        LevelManager = GetComponentInChildren<LevelManager>();
     }
 
     void Start()
     {
-        UIManager = GetComponentInChildren<UIManager>();
-        LevelManager = GetComponentInChildren<LevelManager>();
+        
     }
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

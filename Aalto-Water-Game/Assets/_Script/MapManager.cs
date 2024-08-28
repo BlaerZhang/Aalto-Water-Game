@@ -119,8 +119,8 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMapFromDictionary()
     {
-        Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(0, out int mapWidth, out int mapHeight);
-
+        Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(GameManager.Instance.LevelManager.CurrentLevelIndex, out int mapWidth, out int mapHeight);
+        
         MapHeight = mapHeight;
         MapWidth = mapWidth;
 
