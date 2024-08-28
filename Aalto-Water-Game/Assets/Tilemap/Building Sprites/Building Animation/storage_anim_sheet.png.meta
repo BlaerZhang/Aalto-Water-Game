@@ -1,0 +1,1601 @@
+fileFormatVersion: 2
+guid: d927b883ea9621047b1648dfea872309
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: storage_anim_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a17c9758c04a84b91390789b17da95
+      internalID: 1581346327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c1ef3dad3dbfd49bd6e32082715df2
+      internalID: -116014620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0373b1673860cc41889d05797123e6f
+      internalID: 414732962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2be11c7e9cf4674dbbdfc95aa17e77f
+      internalID: 1425039291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ac562180a017445aeacd667c0b0104
+      internalID: -371157961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0ec8d26b2a89a4a9ef4d7c04c74e6b
+      internalID: -152802000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559aa34a88183cd44995d6760aae724e
+      internalID: 534123645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc1c67bacb403c44a2d23859d2a524c
+      internalID: 816907289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd40f2cbe0562ad4597ac0d76de784dd
+      internalID: 628362549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7fccaba2feb5d4e980fe5c90f1adc6
+      internalID: 386061897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ddca373bc6d0c469807cbbf3adcd20
+      internalID: -1319872072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc7abe4f3812724ebf80ea3d0feb735
+      internalID: 1624047206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c48deb74eb5a3e49b4b390e566f31de
+      internalID: -324968272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55db827e0bf3d6a458752a3eb2b2f472
+      internalID: 1726792419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244424addb06c8c48bc8c1c66140314f
+      internalID: -2134373583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88ada55e23c68a4db9b21168bbfd169
+      internalID: -1997848728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb477c883e6cfd345b96f29500b2cd6b
+      internalID: 382069089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14eb4198704fad49a2b00ca9d79b757
+      internalID: -1990410150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce80b114f1164f4cabf1f778ee62e0a
+      internalID: -1504916259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f956ab65427f1f3458358843c670b3a3
+      internalID: -1981347942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f694c44a96145f4e97e5a4b3a6f4bf6
+      internalID: -1905310533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05756cf1bce1bac429fab0ea85b499e1
+      internalID: 1531098225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72aa120750b7e04a8481d4edc88d5b7
+      internalID: -93311460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8e9704b80e8114eba8403c18973a2b
+      internalID: -1441500791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6daaca3c0b3a7ce4ea1f1be1e5c3b219
+      internalID: -1250832506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386c935de61c2554ea0ba8592ca45181
+      internalID: -1129971811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544a98dedd9d132438252471ef84ffad
+      internalID: 2126210205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d59bacf3cf81be40b5ac90493035252
+      internalID: 1717481543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dda99d1339b2c440b1e90c127bcbbe8
+      internalID: -869255738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ea30358b0e7ea4094c6b64b9845e61
+      internalID: 1255815888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25b42305cced0b42ae59d06ee23e64a
+      internalID: -303192907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860271af3ec202a42a1bf31f7450231b
+      internalID: 1446749422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efbbf1863fe40b4a89e92b0ddc2d6e0
+      internalID: 1352401751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34035d4b96b550641ad8e80652f5307d
+      internalID: 542114830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df039680de4d9a47b56618b906357d6
+      internalID: 1390973512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8871a6fd3cb3a549a5e3ddacd824ca0
+      internalID: 800818610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4561b48dfb03b2341b2f80099bca1494
+      internalID: 2033122191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3729904bcd6b7ac4d92121f0434f619c
+      internalID: -185729314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63211bf75caff4b4ab8a3fe3e3f6d221
+      internalID: 670608383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6715436d3b7477248a54d0cc8c6428e1
+      internalID: -700967035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77451a96760f34b49aad5cb7c3da84a6
+      internalID: 1330649069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de48fa8084a98348a210efab070f0fb
+      internalID: 564048918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa31d29dd7a4bb4fa841956b205e4d9
+      internalID: 1544972766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affa5e3d30331b94fa2538e20f780042
+      internalID: -420100774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66243eeb2d1652d4ba2afb56b5178bf1
+      internalID: 1300235744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eba90bf36c87794db7381874290d0b9
+      internalID: 1847604320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_46
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5d41af161f6b64fbf8ca97640c3c85
+      internalID: 886541742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2b37f93e1650c4f9c0bfebb2a2aef4
+      internalID: 1046054769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_48
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e02ade9d5f5b74eb722058d4fee7a5
+      internalID: 329334094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f21dd8f4ac1784ca9e7c1983a3bfef
+      internalID: 427068825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17938f753293c242a534af97d2b1d8c
+      internalID: 2019301650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb32224858caf0f4ab1163f2b9ec68e6
+      internalID: 689847411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7d3afd6eb3f4446901d78c8657b679
+      internalID: -2139012431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2972111731de264a9952b62a59718a3
+      internalID: 1959076886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_54
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ea1c57a515d9747a1d233f6dddb1ad
+      internalID: -133294533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_55
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c2157623ec46e48a8e1b92e1a6a5ee
+      internalID: 1882466224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_56
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367dc66f8228be346a2d572ad6cab3f0
+      internalID: -566503188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_57
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e065f7679aa8bc847a98df92bc7d4cb7
+      internalID: 1580111087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_58
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f6b29711573a14da6126a1776e88ae
+      internalID: -2066716498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_59
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80934c2b740293f42ab2b43a7d8e76d1
+      internalID: 1598501402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_60
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a78af7bc919f24db378cf987e731bc
+      internalID: -1598981458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_61
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5a0c00fb40aa146aa5b5101fc4e5d3
+      internalID: 1144752983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_62
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4cc18f85fb3de54998eed6eb23fcd58
+      internalID: 1201971546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_63
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06ada56342c98948830ddd250f78e30
+      internalID: -1901234784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_64
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3522366e6302164a906c13382b9dc41
+      internalID: 422708847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_65
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03f639968cf9114e8ad96dfbdf26010
+      internalID: 993683005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_anim_sheet_66
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34f6e25f1c4ecc46b92e9e2894ea3c6
+      internalID: -1036138965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      storage_anim_sheet_0: 1581346327
+      storage_anim_sheet_1: -116014620
+      storage_anim_sheet_10: -1319872072
+      storage_anim_sheet_11: 1624047206
+      storage_anim_sheet_12: -324968272
+      storage_anim_sheet_13: 1726792419
+      storage_anim_sheet_14: -2134373583
+      storage_anim_sheet_15: -1997848728
+      storage_anim_sheet_16: 382069089
+      storage_anim_sheet_17: -1990410150
+      storage_anim_sheet_18: -1504916259
+      storage_anim_sheet_19: -1981347942
+      storage_anim_sheet_2: 414732962
+      storage_anim_sheet_20: -1905310533
+      storage_anim_sheet_21: 1531098225
+      storage_anim_sheet_22: -93311460
+      storage_anim_sheet_23: -1441500791
+      storage_anim_sheet_24: -1250832506
+      storage_anim_sheet_25: -1129971811
+      storage_anim_sheet_26: 2126210205
+      storage_anim_sheet_27: 1717481543
+      storage_anim_sheet_28: -869255738
+      storage_anim_sheet_29: 1255815888
+      storage_anim_sheet_3: 1425039291
+      storage_anim_sheet_30: -303192907
+      storage_anim_sheet_31: 1446749422
+      storage_anim_sheet_32: 1352401751
+      storage_anim_sheet_33: 542114830
+      storage_anim_sheet_34: 1390973512
+      storage_anim_sheet_35: 800818610
+      storage_anim_sheet_36: 2033122191
+      storage_anim_sheet_37: -185729314
+      storage_anim_sheet_38: 670608383
+      storage_anim_sheet_39: -700967035
+      storage_anim_sheet_4: -371157961
+      storage_anim_sheet_40: 1330649069
+      storage_anim_sheet_41: 564048918
+      storage_anim_sheet_42: 1544972766
+      storage_anim_sheet_43: -420100774
+      storage_anim_sheet_44: 1300235744
+      storage_anim_sheet_45: 1847604320
+      storage_anim_sheet_46: 886541742
+      storage_anim_sheet_47: 1046054769
+      storage_anim_sheet_48: 329334094
+      storage_anim_sheet_49: 427068825
+      storage_anim_sheet_5: -152802000
+      storage_anim_sheet_50: 2019301650
+      storage_anim_sheet_51: 689847411
+      storage_anim_sheet_52: -2139012431
+      storage_anim_sheet_53: 1959076886
+      storage_anim_sheet_54: -133294533
+      storage_anim_sheet_55: 1882466224
+      storage_anim_sheet_56: -566503188
+      storage_anim_sheet_57: 1580111087
+      storage_anim_sheet_58: -2066716498
+      storage_anim_sheet_59: 1598501402
+      storage_anim_sheet_6: 534123645
+      storage_anim_sheet_60: -1598981458
+      storage_anim_sheet_61: 1144752983
+      storage_anim_sheet_62: 1201971546
+      storage_anim_sheet_63: -1901234784
+      storage_anim_sheet_64: 422708847
+      storage_anim_sheet_65: 993683005
+      storage_anim_sheet_66: -1036138965
+      storage_anim_sheet_7: 816907289
+      storage_anim_sheet_8: 628362549
+      storage_anim_sheet_9: 386061897
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
