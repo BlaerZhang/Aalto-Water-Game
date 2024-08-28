@@ -8,7 +8,7 @@ public class CSVReader
     public static Dictionary<Vector2Int, TileType> ReadCSV2(int levelIndex)
     {
         Dictionary<Vector2Int, TileType> mapDict = new Dictionary<Vector2Int, TileType>();
-        
+
         TextAsset csvFile = Resources.Load<TextAsset>($"Level CSV/level{levelIndex}");
         string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         int mapHeight = splitLine.Length;
