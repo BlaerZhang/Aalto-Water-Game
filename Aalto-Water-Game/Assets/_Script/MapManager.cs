@@ -12,14 +12,12 @@ public class MapManager : MonoBehaviour
     /// <summary>
     /// Number of horizontal tiles on the Map
     /// </summary>
-    [HideInInspector]
-    public int MapWidth = 10;
+    public int MapWidth = 5;
 
     /// <summary>
     /// Number of vertical tiles on the Map
     /// </summary>
-    [HideInInspector]
-    public int MapHeight = 10;
+    public int MapHeight = 5;
 
     /// <summary>
     /// The Map is updated every *MapUpdateInterval* seconds
