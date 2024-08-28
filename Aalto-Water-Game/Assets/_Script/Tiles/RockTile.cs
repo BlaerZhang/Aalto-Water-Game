@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class RockTile: Tile
 {
     public RockTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Rock, tilePosition,sprite) { }
-    
-    public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
+
+    public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
-        return this.Type;
+        newType = Type;
     }
 }

@@ -1,31 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 public class Building : Tile
 {
+    #region Properties
+
     public BuildingType BuildingType {get; private set;}
 
     public GameObject BuildingSprite { get; private set;}
+
+    #endregion Properties
+
+    #region Methods
 
     public Building(BuildingType type, Vector2Int tilePosition, GameObject buildingSprite, GameObject dirtTileSprite)
         : base(TileType.Building, tilePosition, dirtTileSprite)
     {
         BuildingType = type;
         BuildingSprite = buildingSprite;
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
-        {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
-                BuildingType)
-            {
-                GameManager.Instance.LevelManager.CurrentTileNumber += 1;
-            }
-        }
     }
 
-    public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
+    public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
-        return TileType.Building;
+        newType = TileType.Building;
     }
 
     public static Building CreateBuilding(BuildingType type, Vector2Int position, GameObject buildingSprite, GameObject dirtTileSprite)
@@ -45,37 +45,20 @@ public class Building : Tile
         }
     }
 
-    public static bool CanBuildOnTile(BuildingType type, List<Tile> surroundingTiles)
-    {
-        switch (type)
-        {
-            case BuildingType.Dessalinator:
-                return true;
-            case BuildingType.Sprinkler:
-                return true;
-            case BuildingType.Reservoir:
-                return true;
-            // Add cases for other building types
-            default:
-                Debug.Log($"Building type {type.ToString()} does not exist");
-                return false;
-        }
-    }
-    
+    /// <summary>
+    /// Defines if the Building is working according to its surroundings
+    /// </summary>
+    /// <param name="surroundingTiles"></param>
+    public virtual bool IsFunctional(List<Tile> surroundingTiles) { throw new NotImplementedException(); }
+
     public override void Destroy()
     {
         // If it is a Dirt Tile it will be recicled by the MapManager when destroying the building
         if (Type == TileType.Dirt)
-            Object.Destroy(Sprite);
-        Object.Destroy(BuildingSprite);
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
-        {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
-                BuildingType)
-            {
-                GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
-            }
-        }
+            UnityEngine.Object.Destroy(Sprite);
+        UnityEngine.Object.Destroy(BuildingSprite);
     }
+
+    #endregion Methods
 }
 

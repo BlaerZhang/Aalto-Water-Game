@@ -20,6 +20,11 @@ public abstract class Tile
 
     public Vector3 Position { get => Sprite.transform.position; }
 
+    /// <summary>
+    /// Radius that the map manager will use to create the list of the surrounding area.
+    /// </summary>
+    public virtual int SurroundingRadius { get => 1; }
+
     #endregion Properties
 
     #region Constructor
@@ -70,13 +75,12 @@ public abstract class Tile
     }
 
     /// <summary>
-    /// Applies the transforming rules of the Tile according to its surrounding
+    /// Applies the transforming rules of the Tile according to its surrounding. ACan also be used to affect the surroundings.
     /// </summary>
-    /// <param name="surroundingTiles"> List of surrounging Tiles: 
-    /// <para>Top-Left; Top-Center; Top-Right; Middle-Left; Middle-Right; Bottom-Left; Bottom-Center; Bottom-Right</para>
-    /// </param>
+    /// <param name="surroundingTiles"> List of surrounging Tiles </param
+    /// <param name="newType">The Tile will be replaced by a Tyle of this type unless it is already of this Type.</param>
     /// <returns>Tile Type that the instance will transform into according to the rules.</returns>
-    public abstract TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles);
+    public abstract void Update(List<Tile> surroundingTiles, out TileType newType);
 
     /// <summary>
     /// Counts the number of each TileType in a list of Tiles (usually the ones surrouning a specific Tile)
@@ -96,9 +100,7 @@ public abstract class Tile
 
         // Check if the surrounding tiles contain enough Dirt tiles
         if (typeCounts.ContainsKey(TileType.Dirt) && typeCounts[TileType.Dirt] > 2 && UnityEngine.Random.value > 0.55f)
-        {
             return TileType.Grass; // Make this tile water if surrounded by mostly dirt and random condition met
-        }
 
         // Default case
         return TileType.Dirt;
@@ -131,6 +133,8 @@ public abstract class Tile
         if (Type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && Type != TileType.Building)
            GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
     }
+
+    public virtual void GetWater(float waterQuantity) {}
 
     #endregion Methods
 }
