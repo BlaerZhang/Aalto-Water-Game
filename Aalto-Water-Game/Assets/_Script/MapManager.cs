@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
     /// <summary>
     /// The Map is updated every *MapUpdateInterval* seconds
     /// </summary>
-    [Range(5, 15)] public float MapUpdateInterval = 2f;
+    [Range(0.1f, 15)] public float MapUpdateInterval = 1f;
 
     #region Range Search
 
