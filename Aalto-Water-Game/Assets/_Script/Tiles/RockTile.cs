@@ -2,9 +2,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SandTile: Tile
+public class RockTile: Tile
 {
-    public SandTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Sand, tilePosition,sprite) { }
+    public RockTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Rock, tilePosition,sprite) { }
 
     public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
     {

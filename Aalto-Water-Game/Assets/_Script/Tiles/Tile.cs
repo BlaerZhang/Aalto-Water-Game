@@ -111,7 +111,7 @@ public abstract class Tile
                 return new GrassTile(position, sprite);
             case TileType.Dirt:
                 return new DirtTile(position, sprite);
-            case TileType.Sand:
+            case TileType.Rock:
                 return new SandTile(position, sprite);
             case TileType.SaltyWater:
                 return new SaltyWaterTile(position, sprite);
