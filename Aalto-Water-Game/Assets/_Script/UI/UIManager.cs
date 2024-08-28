@@ -28,6 +28,10 @@ public class UIManager : MonoBehaviour
 
     public Slider ProgressBar;
 
+    [Header("End Screen")]
+    public GameObject levelCompleteScreen;
+    public GameObject levelFailedScreen;
+
     private void OnEnable()
     {
         OnSelectedBuildingTypeChanged += UpdateButtonUI;
@@ -76,5 +80,17 @@ public class UIManager : MonoBehaviour
     public void HideTooltip()
     {
         BuildingTooltip.SetActive(false);
+    }
+
+    public void ShowEndScreen(bool winning)
+    {
+        if (winning) levelCompleteScreen.SetActive(true);
+        else levelFailedScreen.SetActive(true);
+    }
+
+    public void HideEndScreen()
+    {
+        levelCompleteScreen.SetActive(false);
+        levelFailedScreen.SetActive(false);
     }
 }

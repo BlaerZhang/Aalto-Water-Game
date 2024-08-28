@@ -9,7 +9,7 @@ public class CSVReader
     {
         Dictionary<Vector2Int, TileType> mapDict = new Dictionary<Vector2Int, TileType>();
         
-        TextAsset csvFile = Resources.Load<TextAsset>($"level{levelIndex}");
+        TextAsset csvFile = Resources.Load<TextAsset>($"Level CSV/level{levelIndex}");
         string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         int mapHeight = splitLine.Length;
 
@@ -36,7 +36,7 @@ public class CSVReader
         mapHeight = 0;
 
         // Load the CSV file from Resources folder
-        TextAsset csvFile = Resources.Load<TextAsset>($"level{levelIndex}");
+        TextAsset csvFile = Resources.Load<TextAsset>($"Level CSV/level{levelIndex}");
         if (csvFile == null)
         {
             Debug.LogError($"CSV file for level {levelIndex} not found.");

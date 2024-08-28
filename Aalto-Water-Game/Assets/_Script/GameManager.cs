@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public MapManager MapManager;
+    [HideInInspector] public MapManager MapManager;
 
     [HideInInspector] public UIManager UIManager;
+
+    [HideInInspector] public LevelManager LevelManager;
 
     public int BuildingTypeCount = Enum.GetValues(typeof(BuildingType)).Length;
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UIManager = GetComponentInChildren<UIManager>();
+        LevelManager = GetComponentInChildren<LevelManager>();
     }
     
     void Update()
