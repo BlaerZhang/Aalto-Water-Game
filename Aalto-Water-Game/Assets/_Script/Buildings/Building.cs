@@ -37,6 +37,23 @@ public class Building : Tile
         }
     }
 
+    public static bool CanBuildOnTile(BuildingType type, List<Tile> surroundingTiles)
+    {
+        switch (type)
+        {
+            case BuildingType.Dessalinator:
+                return DessalinatorBuilding.CanBuildAccordingToRules(surroundingTiles);
+            case BuildingType.Sprinkler:
+                return SprinklerBuilding.CanBuildAccordingToRules(surroundingTiles);
+            case BuildingType.Reservoir:
+                return ReservoirBuilding.CanBuildAccordingToRules(surroundingTiles);
+            // Add cases for other building types
+            default:
+                Debug.Log($"Building type {type.ToString()} does not exist");
+                return false;
+        }
+    }
+    
     public override void Destroy()
     {
         // If it is a Dirt Tile it will be recicled by the MapManager when destroying the building

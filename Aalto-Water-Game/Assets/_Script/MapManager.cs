@@ -263,7 +263,11 @@ public class MapManager : MonoBehaviour
     {
         Vector2Int tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
 
-        return (Map[tileKey] != null && Map[tileKey].Type != TileType.Water && Map[tileKey].Type != TileType.Building);
+        if (!Map.TryGetValue(tileKey, out Tile tile) || tile.Type == TileType.Building
+                                                     || tile.Type == TileType.SaltyWater)
+            return false;
+
+        return Building.CanBuildOnTile(GameManager.Instance.UIManager.CurrentBuildingType, GetSurroundingTiles(tileKey));
     }
 
     public void PlaceBuilding(Vector3 tilePosition) 
