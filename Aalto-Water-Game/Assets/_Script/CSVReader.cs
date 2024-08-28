@@ -45,15 +45,15 @@ public class CSVReader
 
         // Split the text into lines
         string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-        mapHeight = splitLine.Length;
+        mapHeight = splitLine.Length-1;
+        mapWidth = splitLine[0].Split(',').Length;
 
         for (int y = 0; y < mapHeight; y++)
         {
             // Split each line into grid cells
             string[] splitGrid = splitLine[y].Split(',');
-            mapWidth = splitGrid.Length;
 
-            for (int x = 0; x < mapWidth; x++)
+            for (int x = 0; x < splitGrid.Length; x++)
             {
                 if (int.TryParse(splitGrid[x], out int tileTypeInt))
                     // Add to the dictionary

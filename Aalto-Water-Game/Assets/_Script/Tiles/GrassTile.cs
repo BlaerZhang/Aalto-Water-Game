@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GrassTile : Tile
 {
@@ -9,18 +10,20 @@ public class GrassTile : Tile
 
     public GrassTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Grass, tilePosition,sprite) { }
 
-    public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
+    public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
-        var tileTypeCounts = CountTypes(surroundingTiles);
-        if (tileTypeCounts[TileType.Dirt] > 0) 
+        if (surroundingTiles.Any(t => t.Type == TileType.Dirt))
         {
             // Decrease HumidityLevel and clamp it within the valid range
             HumidityLevel = Mathf.Clamp(HumidityLevel - DryingSpeed, 0, MaxHumidityLevel);
 
             if (HumidityLevel == 0)
-                return TileType.Dirt;
+            {
+                newType = TileType.Dirt;
+                return;
+            }
         }
 
-        return this.Type;
+        newType = Type;
     }
 }

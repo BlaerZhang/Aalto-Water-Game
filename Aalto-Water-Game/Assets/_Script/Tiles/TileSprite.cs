@@ -19,7 +19,7 @@ using UnityEngine;
                 case TileType.Dirt:
                     spriteObject = null;
                     break;
-                case TileType.Sand:
+                case TileType.Rock:
                     spriteObject = null;
                     break;
                 case TileType.SaltyWater:

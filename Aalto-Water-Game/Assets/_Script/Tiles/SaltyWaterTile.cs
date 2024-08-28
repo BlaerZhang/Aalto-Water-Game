@@ -6,8 +6,8 @@ public class SaltyWaterTile: Tile
 {
 	public SaltyWaterTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.SaltyWater, tilePosition,sprite){}
 
-    public override TileType ApplyRulesAndGetNewType(List<Tile> surroundingTiles)
+    public override void Update(List<Tile> surroundingTiles, out TileType newType)
 	{
-		return this.Type;
+		newType = Type;
 	}
 }
