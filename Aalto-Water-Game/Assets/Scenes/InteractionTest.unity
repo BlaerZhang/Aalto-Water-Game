@@ -298,8 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a0e06f54d0c884f98d50a335af1e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapWidth: 20
-  MapHeight: 20
+  MapWidth: 50
+  MapHeight: 50
   MapUpdateInterval: 5
   TilePrefabList:
   - {fileID: 536776303747783722, guid: 153660ed6f34bc04cb8aa54a1eefc3bd, type: 3}
@@ -1065,7 +1065,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1090,7 +1090,7 @@ Transform:
   m_GameObject: {fileID: 514207474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
