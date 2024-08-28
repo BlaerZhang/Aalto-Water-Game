@@ -3,9 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
 using Random = UnityEngine.Random;
-using UnityEngine.UIElements;
 using System.Linq;
-using UnityEditor.U2D.Aseprite;
 
 public class MapManager : MonoBehaviour
 {
