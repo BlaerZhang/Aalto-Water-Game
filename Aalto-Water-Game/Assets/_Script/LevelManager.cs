@@ -25,21 +25,29 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        CurrentLevelIndex = -1;
-        // CurrentLevelInfoSOList = LevelInfoSOList[CurrentLevelIndex];
-        // TargetTileNumber = LevelInfoSOList[0].RequiredNumber;
-        CurrentTileNumber = 0;
+        LoadLevel(0, true);
     }
 
-    public void LoadLevel(int levelIndex)
+    public void LoadLevel(int levelIndex, bool skipLoadingScene = false)
     {
+        if (!skipLoadingScene) SceneManager.LoadScene($"Level {levelIndex + 1}");
         CurrentLevelIndex = levelIndex;
         CurrentLevelInfoSOList = LevelInfoSOList[CurrentLevelIndex];
-        SceneManager.LoadScene($"Level {levelIndex + 1}");
-        TargetTileNumber = LevelInfoSOList[levelIndex].RequiredNumber;
+        TargetTileNumber = CurrentLevelInfoSOList.RequiredNumber;
         CurrentTileNumber = 0;
-    }
 
+        Debug.Log($"Current Level: {CurrentLevelIndex} \n Target Tile Number: {TargetTileNumber}");
+        
+        GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
+        Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(levelIndex, out int mapWidth, out int mapHeight);
+        GameManager.Instance.MapManager.Map = new Dictionary<Vector2Int, Tile>();
+        GameManager.Instance.MapManager.MapHeight = 50;
+        GameManager.Instance.MapManager.MapWidth = 50;
+        GameManager.Instance.MapManager.GenerateMap();
+        GameManager.Instance.MapManager.GenerateMapFromDictionary(mapAsDictionary, mapHeight, mapWidth);
+        Debug.Log(GameManager.Instance.MapManager.Map.Count);
+    }
+    
     IEnumerator CheckWinning()
     {
         yield return new WaitForSeconds(2);

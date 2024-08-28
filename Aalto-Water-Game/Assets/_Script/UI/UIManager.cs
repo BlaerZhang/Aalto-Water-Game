@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
         Mask.gameObject.SetActive(true);
         Mask.DOFade(1, 1).OnComplete(() =>
         {
-            GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex + 1);
+            GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex + 1, true);
             HideEndScreen();
             Mask.color = Color.black;
             Mask.DOFade(0, 1).OnComplete(() =>

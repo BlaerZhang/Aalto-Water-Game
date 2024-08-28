@@ -81,22 +81,25 @@ public class MapManager : MonoBehaviour
     /// <summary>
     /// Matrix of Tiles representing the Map.
     /// </summary>
-    private Dictionary<Vector2Int, Tile> Map;
+    public Dictionary<Vector2Int, Tile> Map;
 
     #endregion Properties
 
     #region Unity Methods
 
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
-        Map = new Dictionary<Vector2Int, Tile>();
-        GenerateMap();
-        GenerateMapFromDictionary();
+        // GameManager.Instance.MapManager = this;
+        // GenerateMap();
+        // GenerateMapFromDictionary();
 
         // Update the map periodically according to the Tile's rules
         InvokeRepeating("UpdateMap", MapUpdateInterval, MapUpdateInterval);
-
-        GameManager.Instance.MapManager = this;
     }
 
     #endregion Unity Methods
@@ -134,6 +137,12 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMap()
     {
+        //Destroy all children
+        foreach (Transform child in transform) 
+        {
+            Destroy(child.gameObject);
+        }
+        
         int xOffset = MapWidth / 2;
         int yOffset = MapHeight / 2;
 
@@ -152,6 +161,9 @@ public class MapManager : MonoBehaviour
 
                 // Instantiate the tile sprite at the calculated position
                 GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
+                
+                //Nest
+                tileSprite.transform.parent = this.transform;
 
                 // Create the tile using the selected type and position
                 Tile tile = Tile.CreateTile(tileType, position, tileSprite);
@@ -161,11 +173,10 @@ public class MapManager : MonoBehaviour
             }
         }
     }
+    
 
-    public void GenerateMapFromDictionary()
+    public void GenerateMapFromDictionary(Dictionary<Vector2Int, TileType> mapAsDictionary, int mapHeight, int mapWidth)
     {
-        Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(GameManager.Instance.LevelManager.CurrentLevelIndex, out int mapWidth, out int mapHeight);
-        
         MapHeight = mapHeight;
         MapWidth = mapWidth;
 
@@ -186,6 +197,9 @@ public class MapManager : MonoBehaviour
         // Instantiate the new tile sprite and create the Tile object
         tileSprite = Instantiate(TilePrefabList[(int)type], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
         tileSprite.transform.localScale = Vector3.zero;
+        
+        //Nest
+        tileSprite.transform.parent = this.transform;
 
         Tile tile = Tile.CreateTile(type, position, tileSprite);
 
@@ -213,9 +227,16 @@ public class MapManager : MonoBehaviour
         {
             dirtSprite = Instantiate(TilePrefabList[(int)TileType.Dirt], tilePosition, Quaternion.identity);
             Destroy(Map[tileKey].Sprite);  // Destroy the existing old sprite
+            
+            //Nest
+            dirtSprite.transform.parent = this.transform;
         }
 
         GameObject buildingSprite = Instantiate(BuildingPrefabList[(int)buildingType], tilePosition, Quaternion.identity);
+        
+        //Nest
+        buildingSprite.transform.parent = this.transform;
+        
         var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
 
         Map[tileKey] = building;
