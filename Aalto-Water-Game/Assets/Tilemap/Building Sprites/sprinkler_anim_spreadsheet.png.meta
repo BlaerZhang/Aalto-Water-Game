@@ -115,10 +115,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_1
       rect:
         serializedVersion: 2
-        x: 98
+        x: 34
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_2
       rect:
         serializedVersion: 2
-        x: 196
+        x: 68
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_3
       rect:
         serializedVersion: 2
-        x: 294
+        x: 102
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_4
       rect:
         serializedVersion: 2
-        x: 392
+        x: 136
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_5
       rect:
         serializedVersion: 2
-        x: 490
+        x: 170
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_6
       rect:
         serializedVersion: 2
-        x: 588
+        x: 204
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_7
       rect:
         serializedVersion: 2
-        x: 686
+        x: 238
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_8
       rect:
         serializedVersion: 2
-        x: 784
+        x: 272
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_9
       rect:
         serializedVersion: 2
-        x: 882
+        x: 306
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_10
       rect:
         serializedVersion: 2
-        x: 980
+        x: 340
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_11
       rect:
         serializedVersion: 2
-        x: 1078
+        x: 374
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_12
       rect:
         serializedVersion: 2
-        x: 1176
+        x: 408
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_13
       rect:
         serializedVersion: 2
-        x: 1274
+        x: 442
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_14
       rect:
         serializedVersion: 2
-        x: 1372
+        x: 476
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -428,12 +428,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_15
       rect:
         serializedVersion: 2
-        x: 1470
+        x: 510
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -449,12 +449,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_16
       rect:
         serializedVersion: 2
-        x: 1568
+        x: 544
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -470,12 +470,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_17
       rect:
         serializedVersion: 2
-        x: 1666
+        x: 578
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -491,12 +491,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_18
       rect:
         serializedVersion: 2
-        x: 1764
+        x: 612
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_19
       rect:
         serializedVersion: 2
-        x: 1862
+        x: 646
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -533,12 +533,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_20
       rect:
         serializedVersion: 2
-        x: 1960
+        x: 680
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -554,12 +554,12 @@ TextureImporter:
       name: sprinkler_anim_spreadsheet_21
       rect:
         serializedVersion: 2
-        x: 2058
+        x: 714
         y: 0
-        width: 98
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 34
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

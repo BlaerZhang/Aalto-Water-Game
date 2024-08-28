@@ -1780,7 +1780,7 @@ SpriteRenderer:
   m_SortingLayerID: -1451962471
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0b4722d3352e5fb46a7b26cd49c09d44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a17d90f19994b3e4a8e157a1b981d7b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingSpriteList:
-  - {fileID: 21300000, guid: a2d55a5f13eb44a46bd5dc33eb6ce8d3, type: 3}
+  - {fileID: 21300000, guid: a17d90f19994b3e4a8e157a1b981d7b1, type: 3}
   - {fileID: 21300000, guid: 20efcd1fdd523f444a9fcd117d96aaa5, type: 3}
   - {fileID: 21300000, guid: ae5ba850b1e103741a28ac319a06a683, type: 3}
 --- !u!1 &1057815633
