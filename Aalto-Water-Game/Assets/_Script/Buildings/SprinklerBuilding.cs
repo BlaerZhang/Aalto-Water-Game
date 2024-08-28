@@ -53,6 +53,7 @@ public class SprinklerBuilding : Building
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
         newType = Type;
+        BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", IsFunctional(surroundingTiles));
         if (!IsFunctional(surroundingTiles)) return;
 
         foreach (var tile in surroundingTiles.Where(t => t.Type != TileType.Building))

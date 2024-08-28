@@ -38,6 +38,7 @@ public class DessalinatorBuilding : Building
     {
         Debug.Log($"Dessalinator Surrounding Count: {surroundingTiles.Count}");
         newType = Type;
+        BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", IsFunctional(surroundingTiles));
         if (!IsFunctional(surroundingTiles)) return;
 
         Debug.Log($"Dessalinator Works and is Creating Water: {DessalinizationSpeed} | Stored: {StoredWaterQuantity}");
