@@ -44,9 +44,9 @@ public class Building : Tile
             case BuildingType.Dessalinator:
                 return DessalinatorBuilding.CanBuildAccordingToRules(surroundingTiles);
             case BuildingType.Sprinkler:
-                return SprinklerBuilding.CanBuildAccordingToRules(surroundingTiles);
+                return true;
             case BuildingType.Reservoir:
-                return ReservoirBuilding.CanBuildAccordingToRules(surroundingTiles);
+                return true;
             // Add cases for other building types
             default:
                 Debug.Log($"Building type {type.ToString()} does not exist");
