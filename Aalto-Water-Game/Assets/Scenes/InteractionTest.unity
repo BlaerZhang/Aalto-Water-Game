@@ -305,6 +305,8 @@ MonoBehaviour:
   - {fileID: 536776303747783722, guid: 153660ed6f34bc04cb8aa54a1eefc3bd, type: 3}
   - {fileID: 5017861872163802277, guid: 6d2bf616c7877964aa1f63d925506d41, type: 3}
   - {fileID: 4979802234605648719, guid: 18b76e98882fc0241b7bfdcb4fb9896b, type: 3}
+  - {fileID: 4979802234605648719, guid: 18b76e98882fc0241b7bfdcb4fb9896b, type: 3}
+  - {fileID: 536776303747783722, guid: 0ce961584a6159e4788a7e2f62670061, type: 3}
   BuildingPrefabList:
   - {fileID: 4979802234605648719, guid: d89ac357820a5b64096cef9eed56b159, type: 3}
   - {fileID: 4979802234605648719, guid: f89f32763b4e1124e9e7074fa1e19afe, type: 3}

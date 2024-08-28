@@ -75,10 +75,10 @@ public class MapManager : MonoBehaviour
                 var position = new Vector2Int(x - xOffset, y - yOffset);
 
                 // Get surrounding tiles
-                List<Tile> surroundingTiles = GetSurroundingTiles(position);
+                // List<Tile> surroundingTiles = GetSurroundingTiles(position);
 
                 // Decide tile type based on surrounding tiles
-                TileType tileType = Tile.GetTileBasedOnSurrounding(surroundingTiles);
+                TileType tileType = TileType.SaltyWater; // Tile.GetTileBasedOnSurrounding(surroundingTiles);
 
                 // Instantiate the tile sprite at the calculated position
                 GameObject tileSprite = Instantiate(TilePrefabList[(int)tileType], Tile.ConvertCoordinatesToIsometric(position), Quaternion.identity);
@@ -130,7 +130,7 @@ public class MapManager : MonoBehaviour
 
         var centeredMapAsDictionary = CenterMapCoordinates(mapAsDictionary);
 
-        UpdateTilesRandom(centeredMapAsDictionary);
+        UpdateTilesRandom(centeredMapAsDictionary, 0.01f);
     }
 
     /// <summary>
