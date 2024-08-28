@@ -112,11 +112,7 @@ public abstract class Tile
             case TileType.Dirt:
                 return new DirtTile(position, sprite);
             case TileType.Rock:
-<<<<<<< HEAD
-                return new SandTile(position, sprite);
-=======
                 return new RockTile(position, sprite);
->>>>>>> origin/main
             case TileType.SaltyWater:
                 return new SaltyWaterTile(position, sprite);
             // Add cases for other tile types
