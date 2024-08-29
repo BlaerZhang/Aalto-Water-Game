@@ -303,6 +303,8 @@ public class MapManager : MonoBehaviour
             Vector2Int position = kvp.Key;
             TileType newTileType = kvp.Value;
 
+            if (newTileType == TileType.SaltyWater) continue;
+
             // Introduce a staggered delay for each tile update
             float delay = i * baseDelay; // Adjust the delay to control the stagger effect
 
@@ -335,7 +337,7 @@ public class MapManager : MonoBehaviour
             {
                 var position = new Vector2Int(x - xOffset, y - yOffset);
                 TileType tileType = TileType.Dirt;
-                if (Map.TryGetValue(position, out Tile tile))
+                if (Map.TryGetValue(position, out Tile tile) && tile.Type != TileType.SaltyWater)
                 {
                     var surroundingTiles = GetSurroundingTiles(position, tile.SurroundingRadius);
                     tile.Update(surroundingTiles, out tileType);
