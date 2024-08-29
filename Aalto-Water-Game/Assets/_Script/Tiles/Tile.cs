@@ -127,7 +127,7 @@ public abstract class Tile
     public virtual void Destroy()
     {
         UnityEngine.Object.Destroy(Sprite);
-        if (Type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && Type != TileType.Building)
+        if (Type == GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType && Type != TileType.Building)
            GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
     }
 

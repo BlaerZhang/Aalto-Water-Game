@@ -11,6 +11,11 @@ public class Building : Tile
     public BuildingType BuildingType {get; private set;}
 
     public GameObject BuildingSprite { get; private set;}
+    
+    /// <summary>
+    /// Price for creating the building
+    /// </summary>
+    public static int BuildingPrice { get; private set; }
 
     #endregion Properties
 
@@ -21,6 +26,7 @@ public class Building : Tile
     {
         BuildingType = type;
         BuildingSprite = buildingSprite;
+        GameManager.Instance.AudioManager.PlayTileCreationSound(TileType.Building);
     }
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
@@ -58,9 +64,9 @@ public class Building : Tile
             UnityEngine.Object.Destroy(Sprite);
         UnityEngine.Object.Destroy(BuildingSprite);
         
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
         {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
+            if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding ==
                 BuildingType)
             {
                 GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
