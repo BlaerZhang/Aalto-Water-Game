@@ -53,6 +53,12 @@ public class LevelManager : MonoBehaviour
         TargetTileNumber = CurrentLevelInfoSO.RequiredTileNumber; //Set target number
         CurrentTileNumber = 0; //Init current number
         CurrentResource = CurrentLevelInfoSO.ResourcesAvailable; //Init resource
+        GameManager.Instance.UIManager.UpdateObjective(
+            TargetTileNumber, 
+            CurrentLevelInfoSO.RequiredTileType,
+            CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding); //Update Objective UI
+        GameManager.Instance.UIManager.UpdateLevelHint(CurrentLevelInfoSO.LevelHint); //Update level hint
+        GameManager.Instance.UIManager.UpdateLevelText(CurrentLevelIndex + 1); //Update level text
         
         //Generate Map
         GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
@@ -68,6 +74,7 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameManager.Instance.UIManager.ShowEndScreen(true);
+        GameManager.Instance.UIManager.UpdateScore(_currentResource);
     }
 
     void CheckLosing()

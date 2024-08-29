@@ -15,6 +15,6 @@ MonoBehaviour:
   RequiredTileType: 5
   RequiredBuildingTypeIfRequiringBuilding: 0
   RequiredTileNumber: 1
-  ResourcesAvailable: 0
+  ResourcesAvailable: 100
   LevelHint: DeSalinators convert Sea water to consumable water. It can only be placed
     on the edge tile where island and sea meet.

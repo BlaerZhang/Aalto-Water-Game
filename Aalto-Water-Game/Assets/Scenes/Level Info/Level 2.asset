@@ -15,6 +15,6 @@ MonoBehaviour:
   RequiredTileType: 5
   RequiredBuildingTypeIfRequiringBuilding: 1
   RequiredTileNumber: 2
-  ResourcesAvailable: 0
+  ResourcesAvailable: 100
   LevelHint: Sprinkler distributes the water from a source, to a set range. It only
     works when its placed in a 2 tile range of consumable water source
