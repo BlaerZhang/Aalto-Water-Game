@@ -11,7 +11,7 @@ public class DessalinatorBuilding : Building
     /// <summary>
     /// Amount of water produced via Dessalinization
     /// </summary>
-    private static float DessalinizationSpeed = 3f;
+    private static float DessalinizationSpeed = 6f;
 
     /// <summary>
     /// Maximum amount of water that the Dessalinator can hold.
