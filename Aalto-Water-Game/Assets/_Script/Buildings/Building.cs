@@ -21,6 +21,7 @@ public class Building : Tile
     {
         BuildingType = type;
         BuildingSprite = buildingSprite;
+        GameManager.Instance.AudioManager.PlayTileCreationSound(TileType.Building);
     }
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
