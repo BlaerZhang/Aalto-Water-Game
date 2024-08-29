@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
         {
             _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateResource(_currentResource);
+            if (_currentResource < 10f) Invoke("CheckLosing", 5);
+            else CancelInvoke();
         }
     }
     private int _currentResource;
@@ -64,5 +66,10 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameManager.Instance.UIManager.ShowEndScreen(true);
+    }
+
+    void CheckLosing()
+    {
+        GameManager.Instance.UIManager.ShowEndScreen(false);
     }
 }

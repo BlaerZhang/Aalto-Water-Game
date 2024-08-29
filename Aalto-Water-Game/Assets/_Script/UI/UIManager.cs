@@ -52,6 +52,8 @@ public class UIManager : MonoBehaviour
         // Scrolling down (backward)
         else if (Input.GetAxis("Mouse ScrollWheel") >= 0.1f)
             CurrentBuildingType = (BuildingType)(((int)CurrentBuildingType - 1 + GameManager.Instance.BuildingTypeCount) % GameManager.Instance.BuildingTypeCount);
+
+        // if (Input.GetKeyDown(KeyCode.R)) LoadNextLevel(true);
     }
 
     public void UpdateCurrentBuildingType(int selectedBuildingType)
@@ -70,7 +72,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateProgressBar(float percentage)
     {
-        ProgressBar.DOValue(percentage, 0.25f);
+        ProgressBar.DOValue(percentage, 0.5f).SetEase(Ease.InOutQuad);
     }
 
     public void UpdateResource(int resource)
@@ -100,14 +102,15 @@ public class UIManager : MonoBehaviour
         levelCompleteScreen.SetActive(false);
         levelFailedScreen.SetActive(false);
     }
-    
-    public void LoadNextLevel()
+
+    public void LoadNextLevel(bool reload = false)
     {
         Mask.color = Color.clear;
         Mask.gameObject.SetActive(true);
         Mask.DOFade(1, 1).OnComplete(() =>
         {
-            GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex + 1, true);
+            if(!reload) GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex + 1, true);
+            else GameManager.Instance.LevelManager.LoadLevel(GameManager.Instance.LevelManager.CurrentLevelIndex, true);
             HideEndScreen();
             Mask.color = Color.black;
             Mask.DOFade(0, 1).OnComplete(() =>
