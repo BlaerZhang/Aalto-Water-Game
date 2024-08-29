@@ -49,11 +49,10 @@ public class LevelManager : MonoBehaviour
         {
             _currentTileNumber = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateProgressBar((float)_currentTileNumber / TargetTileNumber);
-            if (_currentTileNumber >= TargetTileNumber)
-            {
-                PlayerHasWonLevel = true;
-                StartCoroutine(CheckWinning());
-            }
+
+            if (PlayerHasWonLevel) return;
+            
+            if (_currentTileNumber >= TargetTileNumber) StartCoroutine(CheckWinning());
             else StopAllCoroutines();
         }
     }
@@ -99,6 +98,9 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.UIManager.UpdateScore(_currentResource);
         yield return new WaitForSeconds(2);
         GameManager.Instance.UIManager.ShowEndScreen(true);
+        PlayerHasWonLevel = true;
+        StopAllCoroutines();
+        CancelInvoke();
     }
 
     void CheckLosing()
