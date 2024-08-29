@@ -19,7 +19,7 @@ public class DirtTile : Tile
     /// <summary>
     /// The Tile becomes Fertile once the Humidity Level reaches this value.
     /// </summary>
-    private static readonly float FertilityThreshold = 0.01f;
+    private static readonly float FertilityThreshold = 0.0001f;
 
     /// <summary>
     /// Base probability for a Dirt Tile to become a Grass Tile once the Fertility Threshold is reached by the Humidity Level.

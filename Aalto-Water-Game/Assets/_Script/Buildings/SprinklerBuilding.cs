@@ -8,15 +8,23 @@ public class SprinklerBuilding : Building
 
     /// <summary>
     /// Amount of water that the Sprinkler supplies to its surrounding Tiles.
+    /// This amount is spread evenly among the tiles in the working radius.
+    /// Therefore, each tile receives: WaterQuantityToSupply/Number of Tiles affected
     /// </summary>
-    private static float WaterQuantityToSupply = 2f;
+    public static float WaterQuantityToSupply = 24f;
 
     public override int SurroundingRadius { get => 2; }
 
     #endregion Properties
 
+    #region Constructor
+
     public SprinklerBuilding(Vector2Int tilePosition, GameObject buildingSprite, GameObject dirtTileSprite)
         : base(BuildingType.Sprinkler, tilePosition, buildingSprite, dirtTileSprite) { }
+
+    #endregion Constructor
+
+    #region Methods
 
     public override bool IsFunctional(List<Tile> surroundingTiles)
     {
@@ -53,10 +61,13 @@ public class SprinklerBuilding : Building
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
         newType = Type;
-        BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", IsFunctional(surroundingTiles));
-        if (!IsFunctional(surroundingTiles)) return;
+        bool isFunctional = IsFunctional(surroundingTiles);
+        BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", isFunctional);
+        if (!isFunctional) return;
 
         foreach (var tile in surroundingTiles.Where(t => t.Type != TileType.Building))
-            tile.GetWater(WaterQuantityToSupply);
+            tile.GetWater(WaterQuantityToSupply/surroundingTiles.Count);
     }
+
+    #endregion Methods
 }
