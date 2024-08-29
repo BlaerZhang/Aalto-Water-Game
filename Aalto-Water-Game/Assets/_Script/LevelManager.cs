@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
         get => _currentTileNumber;
         set
         {
-            _currentTileNumber = value;
+            _currentTileNumber = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateProgressBar((float)_currentTileNumber / TargetTileNumber);
             if (_currentTileNumber >= TargetTileNumber) StartCoroutine(CheckWinning());
             else StopAllCoroutines();

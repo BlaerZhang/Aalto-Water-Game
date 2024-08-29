@@ -205,6 +205,10 @@ public class MapManager : MonoBehaviour
 
         // Update the Map dictionary with the new tile
         Map[position] = tile;
+        
+        //Update Goal
+        if (type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && type != TileType.Building) 
+            GameManager.Instance.LevelManager.CurrentTileNumber += 1;
     }
 
     public bool BuildingIsPossibleOnTile(Vector3 tilePosition)
@@ -240,6 +244,17 @@ public class MapManager : MonoBehaviour
         var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
 
         Map[tileKey] = building;
+        
+        //Update Goal
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
+        {
+            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
+                buildingType)
+            {
+                if (building.IsFunctional(GetSurroundingTiles(tileKey)))
+                    GameManager.Instance.LevelManager.CurrentTileNumber += 1;
+            }
+        }
     }
 
     public void RemoveBuilding(Vector3 tileIsometricPosition)
@@ -248,6 +263,8 @@ public class MapManager : MonoBehaviour
         if (Map[tilePosition].Type != TileType.Building) return;
 
         CreateNewTile(TileType.Dirt, tilePosition, out GameObject tileSprite);
+        
+        //TODO: target building -= 1
     }
 
     #endregion Elements Cration, Destruction and Alteration

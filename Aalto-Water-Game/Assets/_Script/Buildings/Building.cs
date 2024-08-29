@@ -21,15 +21,6 @@ public class Building : Tile
     {
         BuildingType = type;
         BuildingSprite = buildingSprite;
-        
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
-        {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
-                BuildingType)
-            {
-                GameManager.Instance.LevelManager.CurrentTileNumber += 1;
-            }
-        }
     }
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)

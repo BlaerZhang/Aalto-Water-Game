@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 50
   MapHeight: 50
-  MapUpdateInterval: 0.1
+  MapUpdateInterval: 1
   TilePrefabList:
   - {fileID: 536776303747783722, guid: 153660ed6f34bc04cb8aa54a1eefc3bd, type: 3}
   - {fileID: 5017861872163802277, guid: 6d2bf616c7877964aa1f63d925506d41, type: 3}
