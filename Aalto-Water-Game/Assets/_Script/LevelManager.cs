@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
     [HideInInspector] public int CurrentLevelIndex = 0;
     [HideInInspector] public int TargetTileNumber;
+    // [HideInInspector] public int ResourceLimit;
 
     public int CurrentResource
     {
@@ -35,7 +37,7 @@ public class LevelManager : MonoBehaviour
     }
     private int _currentTileNumber;
     public List<LevelInfoSO> LevelInfoSOList;
-    [HideInInspector] public LevelInfoSO CurrentLevelInfoSOList;
+    [FormerlySerializedAs("CurrentLevelInfoSOList")] [HideInInspector] public LevelInfoSO CurrentLevelInfoSO;
 
     private void Start()
     {
@@ -44,14 +46,15 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int levelIndex, bool skipLoadingScene = false)
     {
-        if (!skipLoadingScene) SceneManager.LoadScene($"Level {levelIndex + 1}");
-        CurrentLevelIndex = levelIndex;
-        CurrentLevelInfoSOList = LevelInfoSOList[CurrentLevelIndex];
-        TargetTileNumber = CurrentLevelInfoSOList.RequiredTileNumber;
-        CurrentTileNumber = 0;
-
-        // Debug.Log($"Current Level: {CurrentLevelIndex} \n Target Tile Number: {TargetTileNumber}");
+        if (!skipLoadingScene) SceneManager.LoadScene($"Level {levelIndex + 1}"); //Load Scene (Legacy)
         
+        CurrentLevelIndex = levelIndex;
+        CurrentLevelInfoSO = LevelInfoSOList[CurrentLevelIndex];
+        TargetTileNumber = CurrentLevelInfoSO.RequiredTileNumber; //Set target number
+        CurrentTileNumber = 0; //Init current number
+        CurrentResource = CurrentLevelInfoSO.ResourcesAvailable; //Init resource
+        
+        //Generate Map
         GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
         Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(levelIndex, out int mapWidth, out int mapHeight);
         GameManager.Instance.MapManager.Map = new Dictionary<Vector2Int, Tile>();
@@ -59,7 +62,6 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.MapManager.MapWidth = 50;
         GameManager.Instance.MapManager.GenerateMap();
         GameManager.Instance.MapManager.GenerateMapFromDictionary(mapAsDictionary, mapHeight, mapWidth);
-        // Debug.Log(GameManager.Instance.MapManager.Map.Count);
     }
     
     IEnumerator CheckWinning()

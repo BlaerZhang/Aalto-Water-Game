@@ -60,6 +60,13 @@ public class MapManager : MonoBehaviour
         {1, RadiusOneSearchArea },
         {2, RadiusTwoSearchArea }
     };
+
+    public Dictionary<BuildingType, int> BuildingPrices = new Dictionary<BuildingType, int>()
+    {
+        { BuildingType.Dessalinator, 30 },
+        { BuildingType.Reservoir, 20 },
+        { BuildingType.Sprinkler, 10 },
+    };
     
     #endregion Range Search
 
@@ -207,7 +214,7 @@ public class MapManager : MonoBehaviour
         Map[position] = tile;
         
         //Update Goal
-        if (type == GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType && type != TileType.Building) 
+        if (type == GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType && type != TileType.Building) 
             GameManager.Instance.LevelManager.CurrentTileNumber += 1;
     }
 
@@ -216,8 +223,9 @@ public class MapManager : MonoBehaviour
         Vector2Int tileKey = Tile.ConvertIsometricToCoordinates(tilePosition);
 
         return (
-            !Map.TryGetValue(tileKey, out Tile tile) 
-            || (tile.Type != TileType.Building && tile.Type != TileType.SaltyWater && tile.Type != TileType.Rock)
+            Map.TryGetValue(tileKey, out Tile tile) 
+            && (tile.Type != TileType.Building && tile.Type != TileType.SaltyWater && tile.Type != TileType.Rock)
+            && GameManager.Instance.LevelManager.CurrentResource - BuildingPrices[GameManager.Instance.UIManager.CurrentBuildingType] >= 0
         );
     }
 
@@ -245,9 +253,12 @@ public class MapManager : MonoBehaviour
 
         Map[tileKey] = building;
         
+        //Cost
+        GameManager.Instance.LevelManager.CurrentResource -= BuildingPrices[GameManager.Instance.UIManager.CurrentBuildingType];
+        
         //Update Goal
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building
-            && GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding == buildingType
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building
+            && GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding == buildingType
             && building.IsFunctional(GetSurroundingTiles(tileKey, Map[tileKey].SurroundingRadius))
            )
             GameManager.Instance.LevelManager.CurrentTileNumber += 1;

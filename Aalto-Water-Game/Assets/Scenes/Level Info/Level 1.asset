@@ -15,4 +15,5 @@ MonoBehaviour:
   RequiredTileType: 5
   RequiredBuildingTypeIfRequiringBuilding: 0
   RequiredTileNumber: 1
-  ResourcesAvailable: 0
+  ResourcesAvailable: 100
+  LevelHint: 
