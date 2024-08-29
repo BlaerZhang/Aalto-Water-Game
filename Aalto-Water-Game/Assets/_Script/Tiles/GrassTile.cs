@@ -8,7 +8,7 @@ public class GrassTile : Tile
     private float HumidityLevel = Random.Range(2, MaxHumidityLevel);
     private float DryingSpeed = Random.Range(0.2f, 1);
 
-    public GrassTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Grass, tilePosition, sprite) { }
+    public GrassTile(Vector2Int tilePosition, GameObject sprite) : base(TileType.Grass, tilePosition,sprite) { }
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
