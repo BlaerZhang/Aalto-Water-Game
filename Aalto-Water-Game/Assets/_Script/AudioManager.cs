@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private List<AudioClip> TileCreationSounds = new List<AudioClip>();
+    public List<AudioClip> TileCreationSounds = new List<AudioClip>();
 
-    private List<AudioClip> BuildingCreationSounds = new List<AudioClip>();
+    public List<AudioClip> BuildingCreationSounds = new List<AudioClip>();
 
     public void PlaySound(AudioClip audioClip, bool playOnLoop=false)
     {

@@ -146,9 +146,9 @@ public class MapManager : MonoBehaviour
         int xOffset = MapWidth / 2;
         int yOffset = MapHeight / 2;
 
-        for (int x = 0; x < MapWidth; x++)
+        for (int y = 0; y < MapWidth; y++)
         {
-            for (int y = 0; y < MapHeight; y++)
+            for (int x = 0; x < MapHeight; x++)
             {
                 // Adjust position so that (0, 0) is in the center of the map
                 var position = new Vector2Int(x - xOffset, y - yOffset);

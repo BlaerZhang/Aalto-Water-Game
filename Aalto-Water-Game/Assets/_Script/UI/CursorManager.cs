@@ -12,6 +12,8 @@ public class CursorManager : MonoBehaviour
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
     public static Action<Vector2, bool> OnMouseClickOnTile;
 
+    private static AudioClip ErrorSound;
+
     private void OnEnable()
     {
         OnMouseHoverOnTile += UpdateCursor;
@@ -58,6 +60,7 @@ public class CursorManager : MonoBehaviour
         {
             //feedback
             //TODO play feedback sound
+            GameManager.Instance.AudioManager.PlaySound(ErrorSound);
             transform.DOShakePosition(0.1f, 0.15f, 200);
         }
     }
