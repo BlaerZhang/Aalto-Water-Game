@@ -8,6 +8,18 @@ public class LevelManager : MonoBehaviour
 {
     [HideInInspector] public int CurrentLevelIndex = 0;
     [HideInInspector] public int TargetTileNumber;
+
+    public int CurrentResource
+    {
+        get => _currentResource;
+        set
+        {
+            _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
+            GameManager.Instance.UIManager.UpdateResource(_currentResource);
+        }
+    }
+    private int _currentResource;
+    
     public int CurrentTileNumber 
     { 
         get => _currentTileNumber;

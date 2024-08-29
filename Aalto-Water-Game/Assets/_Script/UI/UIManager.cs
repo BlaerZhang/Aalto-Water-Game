@@ -73,6 +73,11 @@ public class UIManager : MonoBehaviour
         ProgressBar.DOValue(percentage, 0.25f);
     }
 
+    public void UpdateResource(int resource)
+    {
+        
+    }
+
     public void ShowTooltip(float anchoredPosY, string tooltipText)
     {
         BuildingTooltip.GetComponentInChildren<TMP_Text>().text = tooltipText; // Set text
