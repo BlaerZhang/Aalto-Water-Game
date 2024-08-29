@@ -26,8 +26,6 @@ internal class ReservoirBuilding : Building
     /// </summary>
     public float StoredWaterQuantity { get => _storedWaterQuantity; set { _storedWaterQuantity = Mathf.Clamp(value, 0, MaxCapacity); } }
     private float _storedWaterQuantity = 0;
-
-    public static int BuildingPrice = 20;
     
     #endregion Properties
 
@@ -53,14 +51,14 @@ internal class ReservoirBuilding : Building
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
-        Debug.Log($"Reservoir Surrounding Count: {surroundingTiles.Count}");
+        // Debug.Log($"Reservoir Surrounding Count: {surroundingTiles.Count}");
         newType = Type;
 
         bool isFunctional = IsFunctional(surroundingTiles);
         BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", isFunctional);
         if (!isFunctional) return;
 
-        Debug.Log($"Reservoir Works and is Creating Water: {WaterProductionSpeed} | Stored: {StoredWaterQuantity}");
+        // Debug.Log($"Reservoir Works and is Creating Water: {WaterProductionSpeed} | Stored: {StoredWaterQuantity}");
         StoredWaterQuantity += WaterProductionSpeed;
     }
 

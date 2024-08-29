@@ -61,7 +61,7 @@ public class MapManager : MonoBehaviour
         {2, RadiusTwoSearchArea }
     };
 
-    public Dictionary<BuildingType, int> BuildingPrices = new Dictionary<BuildingType, int>()
+    public static readonly Dictionary<BuildingType, int> BuildingPrices = new Dictionary<BuildingType, int>()
     {
         { BuildingType.Dessalinator, 30 },
         { BuildingType.Reservoir, 20 },

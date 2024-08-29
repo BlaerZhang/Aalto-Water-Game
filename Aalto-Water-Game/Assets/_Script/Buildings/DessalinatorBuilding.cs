@@ -43,12 +43,12 @@ public class DessalinatorBuilding : Building
 
     public override void Update(List<Tile> surroundingTiles, out TileType newType)
     {
-        Debug.Log($"Dessalinator Surrounding Count: {surroundingTiles.Count}");
+        // Debug.Log($"Dessalinator Surrounding Count: {surroundingTiles.Count}");
         newType = Type;
         BuildingSprite.GetComponentInChildren<Animator>().SetBool("isActive", IsFunctional(surroundingTiles));
         if (!IsFunctional(surroundingTiles)) return;
 
-        Debug.Log($"Dessalinator Works and is Creating Water: {DessalinizationSpeed} | Stored: {StoredWaterQuantity}");
+        // Debug.Log($"Dessalinator Works and is Creating Water: {DessalinizationSpeed} | Stored: {StoredWaterQuantity}");
         StoredWaterQuantity += DessalinizationSpeed;
     }
 }

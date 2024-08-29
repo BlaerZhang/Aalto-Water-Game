@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public int TargetTileNumber;
     // [HideInInspector] public int ResourceLimit;
 
+    /// <summary>
+    /// Points that allow the player to create buildings.
+    /// </summary>
     public int CurrentResource
     {
         get => _currentResource;
@@ -18,8 +21,19 @@ public class LevelManager : MonoBehaviour
         {
             _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateResource(_currentResource);
-            if (_currentResource < 10f) Invoke("CheckLosing", 5);
-            else CancelInvoke();
+
+            if (_currentResource < 10)
+                Invoke("CheckLosing", 5);
+            // Avoid having insufficient money to buy the required buildings
+            if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
+            {
+                var requiredBuildingType = GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding;
+                int requiredBuildingPrice = MapManager.BuildingPrices[requiredBuildingType];
+                if (GameManager.Instance.LevelManager.CurrentResource - requiredBuildingPrice <= 0)
+                    Invoke("CheckLosing", 5);
+            }
+            else 
+                CancelInvoke();
         }
     }
     private int _currentResource;
