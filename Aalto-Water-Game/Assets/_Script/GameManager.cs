@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public LevelManager LevelManager;
 
+    [HideInInspector] public AudioManager AudioManager;
+
     public int BuildingTypeCount = Enum.GetValues(typeof(BuildingType)).Length;
 
     private void Awake()
@@ -31,15 +33,6 @@ public class GameManager : MonoBehaviour
         
         UIManager = GetComponentInChildren<UIManager>();
         LevelManager = GetComponentInChildren<LevelManager>();
-    }
-
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioManager = GetComponentInChildren<AudioManager>();
     }
 }
