@@ -2634,6 +2634,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a17d90f19994b3e4a8e157a1b981d7b1, type: 3}
   - {fileID: 21300000, guid: 20efcd1fdd523f444a9fcd117d96aaa5, type: 3}
   - {fileID: 21300000, guid: ae5ba850b1e103741a28ac319a06a683, type: 3}
+  ErrorSound: {fileID: 8300000, guid: 6632e2684e07deb498a5397e85857a1a, type: 3}
 --- !u!1 &1057815633
 GameObject:
   m_ObjectHideFlags: 0

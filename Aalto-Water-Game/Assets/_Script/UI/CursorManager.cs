@@ -12,7 +12,7 @@ public class CursorManager : MonoBehaviour
     public static Action<Vector2, bool, bool> OnMouseHoverOnTile;
     public static Action<Vector2, bool> OnMouseClickOnTile;
 
-    private static AudioClip ErrorSound;
+    public AudioClip ErrorSound;
 
     private void OnEnable()
     {
