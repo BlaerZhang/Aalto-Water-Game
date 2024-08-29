@@ -11,4 +11,5 @@ public class LevelInfoSO : ScriptableObject
     public BuildingType RequiredBuildingTypeIfRequiringBuilding;
     public int RequiredTileNumber;
     public int ResourcesAvailable;
+    public string LevelHint;
 }
