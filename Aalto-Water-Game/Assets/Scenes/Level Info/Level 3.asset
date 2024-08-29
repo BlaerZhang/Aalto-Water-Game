@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredTileType: 1
   RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredTileNumber: 10
+  RequiredTileNumber: 7
   ResourcesAvailable: 0
+  LevelHint: The water distributed from sprinkler converts Dirt tiles into Grass
+    tiles. The tiles within the sprinkler range have possibility to convert
