@@ -9,7 +9,9 @@ public class LevelManager : MonoBehaviour
 {
     [HideInInspector] public int CurrentLevelIndex = 0;
     [HideInInspector] public int TargetTileNumber;
-    [HideInInspector] public bool isWinning = false;
+
+    public static bool PlayerHasWonLevel = false;
+    // [HideInInspector] public int ResourceLimit;
 
     /// <summary>
     /// Points that allow the player to create buildings.
@@ -21,20 +23,21 @@ public class LevelManager : MonoBehaviour
         {
             _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateResource(_currentResource);
-            
-            if(isWinning) return;
-            
-            
+            Debug.Log(PlayerHasWonLevel ? "Won" : "Lost");
+            if (PlayerHasWonLevel)
+                CancelInvoke();
+            else if (_currentResource < 10)
+                Invoke("CheckLosing", 5);
             // Avoid having insufficient money to buy the required buildings
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
+            else if (CurrentLevelInfoSO.RequiredTileType == TileType.Building)
             {
-                var requiredBuildingType = GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding;
+                var requiredBuildingType = CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding;
                 int requiredBuildingPrice = MapManager.BuildingPrices[requiredBuildingType];
-                if (GameManager.Instance.LevelManager.CurrentResource - requiredBuildingPrice <= 0)
+                if (_currentResource - requiredBuildingPrice < 0)
                     Invoke("CheckLosing", 5);
             }
-            else if (_currentResource < 10) Invoke("CheckLosing", 5);
-            else CancelInvoke();
+            else
+                CancelInvoke();
         }
     }
     private int _currentResource;
@@ -46,10 +49,11 @@ public class LevelManager : MonoBehaviour
         {
             _currentTileNumber = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateProgressBar((float)_currentTileNumber / TargetTileNumber);
-            
-            if(isWinning) return;
-            
-            if (_currentTileNumber >= TargetTileNumber) StartCoroutine(CheckWinning());
+            if (_currentTileNumber >= TargetTileNumber)
+            {
+                PlayerHasWonLevel = true;
+                StartCoroutine(CheckWinning());
+            }
             else StopAllCoroutines();
         }
     }
@@ -65,7 +69,7 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(int levelIndex, bool skipLoadingScene = false)
     {
         if (!skipLoadingScene) SceneManager.LoadScene($"Level {levelIndex + 1}"); //Load Scene (Legacy)
-        
+
         CurrentLevelIndex = levelIndex;
         CurrentLevelInfoSO = LevelInfoSOList[CurrentLevelIndex];
         TargetTileNumber = CurrentLevelInfoSO.RequiredTileNumber; //Set target number
@@ -77,7 +81,6 @@ public class LevelManager : MonoBehaviour
             CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding); //Update Objective UI
         GameManager.Instance.UIManager.UpdateLevelHint(CurrentLevelInfoSO.LevelHint); //Update level hint
         GameManager.Instance.UIManager.UpdateLevelText(CurrentLevelIndex + 1); //Update level text
-        isWinning = false; //Reset Winning State
         
         //Generate Map
         GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
@@ -87,20 +90,19 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.MapManager.MapWidth = 50;
         GameManager.Instance.MapManager.GenerateMap();
         GameManager.Instance.MapManager.GenerateMapFromDictionary(mapAsDictionary, mapHeight, mapWidth);
+
+        PlayerHasWonLevel = false; // reset the player's winning status
     }
     
     IEnumerator CheckWinning()
     {
+        GameManager.Instance.UIManager.UpdateScore(_currentResource);
         yield return new WaitForSeconds(2);
         GameManager.Instance.UIManager.ShowEndScreen(true);
-        GameManager.Instance.UIManager.UpdateScore(_currentResource);
-        isWinning = true;
-        StopAllCoroutines();
-        CancelInvoke();
     }
 
     void CheckLosing()
     {
-        GameManager.Instance.UIManager.ShowEndScreen(false);
+        if (!PlayerHasWonLevel) { GameManager.Instance.UIManager.ShowEndScreen(false); }
     }
 }
