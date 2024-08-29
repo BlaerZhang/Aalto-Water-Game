@@ -30,7 +30,13 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text Resource;
 
+    public TMP_Text Objective;
+
     public TMP_Text LevelHint;
+
+    public TMP_Text LevelName;
+
+    public TMP_Text Score;
 
     public Image Mask;
 
@@ -82,6 +88,27 @@ public class UIManager : MonoBehaviour
     public void UpdateResource(int resource)
     {
         Resource.DOText($"{resource}", 0.25f, true, ScrambleMode.Numerals);
+    }
+
+    public void UpdateObjective(int targetTileNumber, TileType targetTileType, BuildingType targetBuildingType = BuildingType.Dessalinator)
+    {
+        if (targetTileType == TileType.Building) Objective.text = $"Build at least <b>{targetTileNumber}</b> functional <b>{targetBuildingType}</b>";
+        else Objective.text = $"Convert at least <b>{targetTileNumber}</b> tiles into <b>{targetTileType}</b>";
+    }
+
+    public void UpdateLevelHint(string hint)
+    {
+        LevelHint.text = hint;
+    }
+
+    public void UpdateLevelText(int levelIndex)
+    {
+        LevelName.text = $"Level {levelIndex}";
+    }
+
+    public void UpdateScore(int score)
+    {
+        Score.DOText($"Your Score: {score}", 0.25f, true, ScrambleMode.All);
     }
 
     public void ShowTooltip(float anchoredPosY, string tooltipText)

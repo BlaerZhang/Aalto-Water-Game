@@ -64,14 +64,14 @@ public class Building : Tile
             UnityEngine.Object.Destroy(Sprite);
         UnityEngine.Object.Destroy(BuildingSprite);
         
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
-        {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding ==
-                BuildingType)
-            {
-                GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
-            }
-        }
+        // if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
+        // {
+        //     if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding ==
+        //         BuildingType)
+        //     {
+        //         GameManager.Instance.LevelManager.CurrentTileNumber -= 1;
+        //     }
+        // }
     }
 
     #endregion Methods
