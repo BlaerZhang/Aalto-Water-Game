@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredTileType: 1
   RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredTileNumber: 50
-  ResourcesAvailable: 100
+  RequiredTileNumber: 60
+  ResourcesAvailable: 280
   LevelHint: 
