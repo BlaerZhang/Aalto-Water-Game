@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         if (!skipLoadingScene) SceneManager.LoadScene($"Level {levelIndex + 1}");
         CurrentLevelIndex = levelIndex;
         CurrentLevelInfoSOList = LevelInfoSOList[CurrentLevelIndex];
-        TargetTileNumber = CurrentLevelInfoSOList.RequiredNumber;
+        TargetTileNumber = CurrentLevelInfoSOList.RequiredTileNumber;
         CurrentTileNumber = 0;
 
         // Debug.Log($"Current Level: {CurrentLevelIndex} \n Target Tile Number: {TargetTileNumber}");
