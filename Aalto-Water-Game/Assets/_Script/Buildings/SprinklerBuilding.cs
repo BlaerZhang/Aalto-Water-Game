@@ -14,6 +14,8 @@ public class SprinklerBuilding : Building
     public static float WaterQuantityToSupply = 24f;
 
     public override int SurroundingRadius { get => 2; }
+    
+    public static int BuildingPrice = 10;
 
     #endregion Properties
 

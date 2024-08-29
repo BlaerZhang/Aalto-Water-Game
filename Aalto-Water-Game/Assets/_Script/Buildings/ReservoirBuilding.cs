@@ -27,6 +27,8 @@ internal class ReservoirBuilding : Building
     public float StoredWaterQuantity { get => _storedWaterQuantity; set { _storedWaterQuantity = Mathf.Clamp(value, 0, MaxCapacity); } }
     private float _storedWaterQuantity = 0;
 
+    public static int BuildingPrice = 20;
+    
     #endregion Properties
 
     #region Constructor

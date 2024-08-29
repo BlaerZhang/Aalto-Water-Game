@@ -29,6 +29,8 @@ public class DessalinatorBuilding : Building
     public float StoredWaterQuantity { get => _storedWaterQuantity; set { _storedWaterQuantity = Mathf.Clamp(value, 0, MaxCapacity); } }
     private float _storedWaterQuantity = 0;
 
+    public static int BuildingPrice = 30;
+
     #endregion Properties
 
     public DessalinatorBuilding(Vector2Int tilePosition, GameObject buildingSprite, GameObject dirtTileSprite) 

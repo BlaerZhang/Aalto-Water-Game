@@ -28,6 +28,10 @@ public class UIManager : MonoBehaviour
 
     public Slider ProgressBar;
 
+    public TMP_Text Resource;
+
+    public TMP_Text LevelHint;
+
     public Image Mask;
 
     [Header("End Screen")]
@@ -77,7 +81,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateResource(int resource)
     {
-        
+        Resource.DOText($"{resource}", 0.25f, true, ScrambleMode.Numerals);
     }
 
     public void ShowTooltip(float anchoredPosY, string tooltipText)
