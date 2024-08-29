@@ -20,7 +20,7 @@ public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     IEnumerator ShowTooltip()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         GameManager.Instance.UIManager.ShowTooltip(GetComponent<RectTransform>().anchoredPosition.y, tooltipText);
     }
 }

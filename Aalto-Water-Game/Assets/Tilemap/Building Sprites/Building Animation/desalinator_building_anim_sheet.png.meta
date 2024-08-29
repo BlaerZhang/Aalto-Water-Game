@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c36b48b58f705ce45bc0ad754ca1efee
+guid: dc78555369ff18147a31235bedb5dec2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,169 +110,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_0
+      name: desalinator_building_anim_sheet_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 24
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1794bc1c13b273d4a85b5378c1193ce9
-      internalID: 48157442
+      spriteID: fac35e12db583fa4b826d1b725460f11
+      internalID: 1397829051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_1
+      name: desalinator_building_anim_sheet_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 48
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f73228e35103e064cadc60cc896d715a
-      internalID: -1546940542
+      spriteID: 1fb5198db99e24347a1cace184a316c4
+      internalID: -589422211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_2
+      name: desalinator_building_anim_sheet_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 72
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 137e6ba6cccf39d4986f8bca84804441
-      internalID: 1737247404
+      spriteID: 10b48b9a3fede2e4bb442fc4fa920b64
+      internalID: 2093630998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_3
+      name: desalinator_building_anim_sheet_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 96
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad99b58b13aa2994c9f8a0bbf34c31db
-      internalID: 1118853024
+      spriteID: 38fc192a8a411124f975e9ec46e0e0c7
+      internalID: -1641879352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 20
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16e47c075bc525d43ac6a7dbcf37718f
-      internalID: 1247077603
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_5
+      name: desalinator_building_anim_sheet_4
       rect:
         serializedVersion: 2
         x: 120
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 244076e6021fcc54ca5ecc62a0c55633
-      internalID: 1283225100
+      spriteID: 2b14a002e9b895244a15e7cd28a5318b
+      internalID: 1983911202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_6
+      name: desalinator_building_anim_sheet_5
       rect:
         serializedVersion: 2
-        x: 140
+        x: 144
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2e294b95231abb438674caa4e4a236a
-      internalID: -1584524132
+      spriteID: 7ca9d4d0e4e165a47baaea32cabe58c7
+      internalID: 1767868162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_7
+      name: desalinator_building_anim_sheet_6
       rect:
         serializedVersion: 2
-        x: 160
+        x: 168
         y: 0
-        width: 20
-        height: 17
+        width: 24
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5583e3acdca037048aaeef976349949e
-      internalID: 2052554178
+      spriteID: 5b1a70117b87cae4a804323431c99cfa
+      internalID: 287815143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desalinator_building_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 24
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef16b729b2e5ac46ac0062e1a0b5505
+      internalID: -1826624956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desalinator_building_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 24
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad3368d098c7534cb69805c4dc8473d
+      internalID: -228695994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desalinator_building_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 24
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5342ab8b8b50a4eb7d136833f5efae
+      internalID: -1241467287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desalinator_building_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 24
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791336f16f68f884d89fa035e9297013
+      internalID: 277401658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desalinator_building_anim_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 24
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b352a0f5a00624f459dcd26e9e7c7818
+      internalID: -1464378755
       vertices: []
       indices: 
       edges: []
@@ -288,14 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sprinkler_building_anim_sheet_0: 48157442
-      sprinkler_building_anim_sheet_1: -1546940542
-      sprinkler_building_anim_sheet_2: 1737247404
-      sprinkler_building_anim_sheet_3: 1118853024
-      sprinkler_building_anim_sheet_4: 1247077603
-      sprinkler_building_anim_sheet_5: 1283225100
-      sprinkler_building_anim_sheet_6: -1584524132
-      sprinkler_building_anim_sheet_7: 2052554178
+      desalinator_building_anim_sheet_0: 1397829051
+      desalinator_building_anim_sheet_1: -589422211
+      desalinator_building_anim_sheet_10: 277401658
+      desalinator_building_anim_sheet_11: -1464378755
+      desalinator_building_anim_sheet_2: 2093630998
+      desalinator_building_anim_sheet_3: -1641879352
+      desalinator_building_anim_sheet_4: 1983911202
+      desalinator_building_anim_sheet_5: 1767868162
+      desalinator_building_anim_sheet_6: 287815143
+      desalinator_building_anim_sheet_7: -1826624956
+      desalinator_building_anim_sheet_8: -228695994
+      desalinator_building_anim_sheet_9: -1241467287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

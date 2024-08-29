@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c36b48b58f705ce45bc0ad754ca1efee
+guid: 04e52f0d2bf1f384097609c13efb31d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,8 +46,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.112}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -110,169 +110,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_0
+      name: storage_building_anim_sheet_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 28
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1794bc1c13b273d4a85b5378c1193ce9
-      internalID: 48157442
+      spriteID: 9fc831f4e1d416444ba8672b431e8cc5
+      internalID: 767267835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_1
+      name: storage_building_anim_sheet_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 56
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f73228e35103e064cadc60cc896d715a
-      internalID: -1546940542
+      spriteID: 394f7d16cfc8c8c4fa7310c68907b38a
+      internalID: -1996745800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_2
+      name: storage_building_anim_sheet_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 84
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 137e6ba6cccf39d4986f8bca84804441
-      internalID: 1737247404
+      spriteID: 30e4c53af0b384141bb5553159589065
+      internalID: -1637785616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_3
+      name: storage_building_anim_sheet_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 112
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad99b58b13aa2994c9f8a0bbf34c31db
-      internalID: 1118853024
+      spriteID: 60300872a4f39a54bb94fc4dc0cbfdf9
+      internalID: -431758897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 20
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16e47c075bc525d43ac6a7dbcf37718f
-      internalID: 1247077603
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_5
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 20
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 244076e6021fcc54ca5ecc62a0c55633
-      internalID: 1283225100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_6
+      name: storage_building_anim_sheet_4
       rect:
         serializedVersion: 2
         x: 140
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2e294b95231abb438674caa4e4a236a
-      internalID: -1584524132
+      spriteID: 962315677c183e64187d834e5c6e33a1
+      internalID: -893265366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprinkler_building_anim_sheet_7
+      name: storage_building_anim_sheet_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 168
         y: 0
-        width: 20
-        height: 17
+        width: 28
+        height: 40
       alignment: 9
-      pivot: {x: 0.5, y: 0.21}
+      pivot: {x: 0.5, y: 0.112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5583e3acdca037048aaeef976349949e
-      internalID: 2052554178
+      spriteID: 1a37f7585c0c5f8478cc4b606d119dc6
+      internalID: 515951573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_building_anim_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f00b1192b226e24b8ea2cc78e59b45b
+      internalID: 238049918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_building_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2589cd0a5138d4644aada41d530ac10a
+      internalID: -53356898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_building_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec3419ab6ac08d4aa8e5cb4a74299a0
+      internalID: -513462885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_building_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7fd4c463257834e8d357b2b343fb8f
+      internalID: 1897173363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: storage_building_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ef304c4934c5e4c901f30b2003d5e5
+      internalID: 362342025
       vertices: []
       indices: 
       edges: []
@@ -288,14 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sprinkler_building_anim_sheet_0: 48157442
-      sprinkler_building_anim_sheet_1: -1546940542
-      sprinkler_building_anim_sheet_2: 1737247404
-      sprinkler_building_anim_sheet_3: 1118853024
-      sprinkler_building_anim_sheet_4: 1247077603
-      sprinkler_building_anim_sheet_5: 1283225100
-      sprinkler_building_anim_sheet_6: -1584524132
-      sprinkler_building_anim_sheet_7: 2052554178
+      storage_building_anim_sheet_0: 767267835
+      storage_building_anim_sheet_1: -1996745800
+      storage_building_anim_sheet_10: 362342025
+      storage_building_anim_sheet_2: -1637785616
+      storage_building_anim_sheet_3: -431758897
+      storage_building_anim_sheet_4: -893265366
+      storage_building_anim_sheet_5: 515951573
+      storage_building_anim_sheet_6: 238049918
+      storage_building_anim_sheet_7: -53356898
+      storage_building_anim_sheet_8: -513462885
+      storage_building_anim_sheet_9: 1897173363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
