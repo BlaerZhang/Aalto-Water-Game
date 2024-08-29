@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f357d65ba52401948bd436f4b1de0366, type: 3}
   m_Name: Level 4
   m_EditorClassIdentifier: 
-  RequiredTileType: 1
-  RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredTileNumber: 20
+  RequiredTileType: 5
+  RequiredBuildingTypeIfRequiringBuilding: 2
+  RequiredTileNumber: 1
   ResourcesAvailable: 0
   LevelHint: Arrange the structures such that the goals are completed, here make
     atleast 35 tiles turn Grass

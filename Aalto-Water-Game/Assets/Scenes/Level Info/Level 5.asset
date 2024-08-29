@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredTileType: 1
   RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredTileNumber: 50
+  RequiredTileNumber: 25
   ResourcesAvailable: 0
-  LevelHint: Make 50 grass tiles
+  LevelHint: Arrange the structures such that the goals are completed, here make
+    atleast 25 tiles turn Grass

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f357d65ba52401948bd436f4b1de0366, type: 3}
   m_Name: Level 7
   m_EditorClassIdentifier: 
-  RequiredTileType: 0
+  RequiredTileType: 1
   RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredNumber: 0
+  RequiredTileNumber: 50
+  ResourcesAvailable: 0
+  LevelHint: 
