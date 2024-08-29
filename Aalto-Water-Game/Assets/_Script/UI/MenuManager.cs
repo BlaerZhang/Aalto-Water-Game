@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
         Mask.gameObject.SetActive(true);
         Mask.DOFade(1, 1).OnComplete(() =>
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Game");
             Mask.color = Color.black;
             Mask.DOFade(0, 1).OnComplete(() =>
             {
