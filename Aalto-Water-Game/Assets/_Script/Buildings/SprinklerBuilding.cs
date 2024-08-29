@@ -30,15 +30,15 @@ public class SprinklerBuilding : Building
 
     public override bool IsFunctional(List<Tile> surroundingTiles)
     {
-        Debug.Log($"Surrounding Tiles Count: {surroundingTiles.Count}");
+        // Debug.Log($"Surrounding Tiles Count: {surroundingTiles.Count}");
         foreach (Building building in surroundingTiles.Where(t => t.Type == TileType.Building))
         {
-            Debug.Log($"Building Type: {building.BuildingType}");
+            // Debug.Log($"Building Type: {building.BuildingType}");
             switch (building.BuildingType)
             {
                 case BuildingType.Dessalinator:
                     var dessalinator = (DessalinatorBuilding)building;
-                    Debug.Log($"Building Stored Water Quantity: {dessalinator.StoredWaterQuantity}");
+                    // Debug.Log($"Building Stored Water Quantity: {dessalinator.StoredWaterQuantity}");
                     if (dessalinator.StoredWaterQuantity >= WaterQuantityToSupply)
                     {
                         dessalinator.StoredWaterQuantity -= WaterQuantityToSupply;
@@ -47,7 +47,7 @@ public class SprinklerBuilding : Building
                     break;
                 case BuildingType.Reservoir:
                     var reservoir = (ReservoirBuilding)building;
-                    Debug.Log($"Building Stored Water Quantity: {reservoir.StoredWaterQuantity}");
+                    // Debug.Log($"Building Stored Water Quantity: {reservoir.StoredWaterQuantity}");
                     if (reservoir.StoredWaterQuantity >= WaterQuantityToSupply)
                     {
                         reservoir.StoredWaterQuantity -= WaterQuantityToSupply;
