@@ -5,29 +5,6 @@ using UnityEngine;
 
 public class CSVReader
 {
-    public static Dictionary<Vector2Int, TileType> ReadCSV2(int levelIndex)
-    {
-        Dictionary<Vector2Int, TileType> mapDict = new Dictionary<Vector2Int, TileType>();
-
-        TextAsset csvFile = Resources.Load<TextAsset>($"Level CSV/level_csv_{levelIndex + 1}");
-        string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-        int mapHeight = splitLine.Length;
-
-        for (int y = 0; y < mapHeight; y++)
-        {
-            string[] splitGrid = splitLine[y].Split(",");
-            int mapWidth = splitGrid.Length;
-            
-            for (int x = 0; x < mapWidth; x++)
-            {
-                mapDict.Add(new Vector2Int(x, y), (TileType)Int32.Parse(splitGrid[x]));
-                Debug.Log($"{new Vector2Int(x, y)}: {(TileType)Int32.Parse(splitGrid[x])}");
-            }
-        }
-        
-        return mapDict;
-    }
-
     public static Dictionary<Vector2Int, TileType> ReadCSV(int levelIndex, out int mapWidth, out int mapHeight)
     {
         Dictionary<Vector2Int, TileType> mapDict = new Dictionary<Vector2Int, TileType>();
@@ -56,8 +33,11 @@ public class CSVReader
             for (int x = 0; x < splitGrid.Length; x++)
             {
                 if (int.TryParse(splitGrid[x], out int tileTypeInt))
+                {
+                    int rotatedY = mapWidth - x - 1;
                     // Add to the dictionary
-                    mapDict.Add(new Vector2Int(x, y), (TileType)tileTypeInt);
+                    mapDict.Add(new Vector2Int(y, rotatedY), (TileType)tileTypeInt);
+                }
             }
         }
 

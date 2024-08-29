@@ -90,6 +90,8 @@ public class MapManager : MonoBehaviour
     /// </summary>
     public Dictionary<Vector2Int, Tile> Map;
 
+    public AudioClip RemoveBuildingSound;
+
     #endregion Properties
 
     #region Unity Methods
@@ -153,9 +155,9 @@ public class MapManager : MonoBehaviour
         int xOffset = MapWidth / 2;
         int yOffset = MapHeight / 2;
 
-        for (int y = 0; y < MapWidth; y++)
+        for (int x = 0; x < MapWidth; x++)
         {
-            for (int x = 0; x < MapHeight; x++)
+            for (int y = 0; y < MapHeight; y++)
             {
                 // Adjust position so that (0, 0) is in the center of the map
                 var position = new Vector2Int(x - xOffset, y - yOffset);
@@ -181,7 +183,6 @@ public class MapManager : MonoBehaviour
         }
     }
     
-
     public void GenerateMapFromDictionary(Dictionary<Vector2Int, TileType> mapAsDictionary, int mapHeight, int mapWidth)
     {
         MapHeight = mapHeight;
@@ -250,7 +251,6 @@ public class MapManager : MonoBehaviour
         buildingSprite.transform.parent = this.transform;
         
         var building = Building.CreateBuilding(buildingType, tileKey, buildingSprite, dirtSprite);
-
         Map[tileKey] = building;
         
         //Cost
@@ -269,9 +269,8 @@ public class MapManager : MonoBehaviour
         var tilePosition = Tile.ConvertIsometricToCoordinates(tileIsometricPosition);
         if (Map[tilePosition].Type != TileType.Building) return;
 
+        GameManager.Instance.AudioManager.PlaySound(RemoveBuildingSound);
         CreateNewTile(TileType.Dirt, tilePosition, out GameObject tileSprite);
-        
-        //TODO: target building -= 1
     }
 
     #endregion Elements Cration, Destruction and Alteration
