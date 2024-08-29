@@ -246,15 +246,11 @@ public class MapManager : MonoBehaviour
         Map[tileKey] = building;
         
         //Update Goal
-        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building)
-        {
-            if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding ==
-                buildingType)
-            {
-                if (building.IsFunctional(GetSurroundingTiles(tileKey)))
-                    GameManager.Instance.LevelManager.CurrentTileNumber += 1;
-            }
-        }
+        if (GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredTileType == TileType.Building
+            && GameManager.Instance.LevelManager.CurrentLevelInfoSOList.RequiredBuildingTypeIfRequiringBuilding == buildingType
+            && building.IsFunctional(GetSurroundingTiles(tileKey, Map[tileKey].SurroundingRadius))
+           )
+            GameManager.Instance.LevelManager.CurrentTileNumber += 1;
     }
 
     public void RemoveBuilding(Vector3 tileIsometricPosition)
