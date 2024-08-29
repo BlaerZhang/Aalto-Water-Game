@@ -95,12 +95,6 @@ public class MapManager : MonoBehaviour
     #endregion Properties
 
     #region Unity Methods
-
-    private void Awake()
-    {
-        
-    }
-
     void Start()
     {
         // GameManager.Instance.MapManager = this;

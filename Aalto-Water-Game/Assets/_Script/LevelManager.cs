@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     [HideInInspector] public int CurrentLevelIndex = 0;
     [HideInInspector] public int TargetTileNumber;
-    // [HideInInspector] public int ResourceLimit;
+    [HideInInspector] public bool isWinning = false;
 
     /// <summary>
     /// Points that allow the player to create buildings.
@@ -21,9 +21,10 @@ public class LevelManager : MonoBehaviour
         {
             _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateResource(_currentResource);
-
-            if (_currentResource < 10)
-                Invoke("CheckLosing", 5);
+            
+            if(isWinning) return;
+            
+            
             // Avoid having insufficient money to buy the required buildings
             if (GameManager.Instance.LevelManager.CurrentLevelInfoSO.RequiredTileType == TileType.Building)
             {
@@ -32,8 +33,8 @@ public class LevelManager : MonoBehaviour
                 if (GameManager.Instance.LevelManager.CurrentResource - requiredBuildingPrice <= 0)
                     Invoke("CheckLosing", 5);
             }
-            else 
-                CancelInvoke();
+            else if (_currentResource < 10) Invoke("CheckLosing", 5);
+            else CancelInvoke();
         }
     }
     private int _currentResource;
@@ -45,6 +46,9 @@ public class LevelManager : MonoBehaviour
         {
             _currentTileNumber = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateProgressBar((float)_currentTileNumber / TargetTileNumber);
+            
+            if(isWinning) return;
+            
             if (_currentTileNumber >= TargetTileNumber) StartCoroutine(CheckWinning());
             else StopAllCoroutines();
         }
@@ -73,6 +77,7 @@ public class LevelManager : MonoBehaviour
             CurrentLevelInfoSO.RequiredBuildingTypeIfRequiringBuilding); //Update Objective UI
         GameManager.Instance.UIManager.UpdateLevelHint(CurrentLevelInfoSO.LevelHint); //Update level hint
         GameManager.Instance.UIManager.UpdateLevelText(CurrentLevelIndex + 1); //Update level text
+        isWinning = false; //Reset Winning State
         
         //Generate Map
         GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
@@ -89,6 +94,9 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         GameManager.Instance.UIManager.ShowEndScreen(true);
         GameManager.Instance.UIManager.UpdateScore(_currentResource);
+        isWinning = true;
+        StopAllCoroutines();
+        CancelInvoke();
     }
 
     void CheckLosing()
