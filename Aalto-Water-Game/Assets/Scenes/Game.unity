@@ -461,6 +461,7 @@ MonoBehaviour:
   - {fileID: 4979802234605648719, guid: d89ac357820a5b64096cef9eed56b159, type: 3}
   - {fileID: 4979802234605648719, guid: f89f32763b4e1124e9e7074fa1e19afe, type: 3}
   - {fileID: 4979802234605648719, guid: 6602b0755ac4d0744974c981ed6c8d1b, type: 3}
+  RemoveBuildingSound: {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
 --- !u!1 &124937571
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +888,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
-  - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
+  - {fileID: 8300000, guid: 89f23aabf50d1da48b96971176fcc365, type: 3}
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
   - {fileID: 8300000, guid: e41dbcce14e71fb40ba28ac108bc0641, type: 3}
