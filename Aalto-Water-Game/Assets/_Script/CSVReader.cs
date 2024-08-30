@@ -22,14 +22,14 @@ public class CSVReader
 
         // Split the text into lines
         string[] splitLine = csvFile.text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-        mapHeight = splitLine.Length-1;
+        mapHeight = splitLine.Length;
         mapWidth = splitLine[0].Split(',').Length;
 
-        for (int y = 0; y < mapHeight; y++)
+        for (int y = 0; y < mapHeight-1; y++)
         {
             // Split each line into grid cells
             string[] splitGrid = splitLine[y].Split(',');
-
+            mapWidth = Math.Max(mapWidth, splitGrid.Length);
             for (int x = 0; x < splitGrid.Length; x++)
             {
                 if (int.TryParse(splitGrid[x], out int tileTypeInt))
@@ -40,6 +40,10 @@ public class CSVReader
                 }
             }
         }
+
+        // avoiding uneven sizes is good because the coordinates are centered
+        if (mapHeight % 2 == 0) mapHeight++;
+        if (mapWidth % 2 == 0) mapWidth++;
 
         return mapDict;
     }

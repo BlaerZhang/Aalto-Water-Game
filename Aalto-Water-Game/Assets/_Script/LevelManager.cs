@@ -11,6 +11,11 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public int TargetTileNumber;
 
     public static bool PlayerHasWonLevel = false;
+
+    /// <summary>
+    /// The game will start at the level StartingLevel. Ex: StartingLevel = 1 means the game starts at Level 1
+    /// </summary>
+    public int StartingLevel = 8;
     // [HideInInspector] public int ResourceLimit;
 
     /// <summary>
@@ -23,7 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             _currentResource = (int)Mathf.Clamp(value, 0, Single.PositiveInfinity);
             GameManager.Instance.UIManager.UpdateResource(_currentResource);
-            Debug.Log(PlayerHasWonLevel ? "Won" : "Lost");
+            // Debug.Log(PlayerHasWonLevel ? "Won" : "Lost");
             if (PlayerHasWonLevel)
                 CancelInvoke();
             else if (_currentResource < 10)
@@ -62,7 +67,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        LoadLevel(0, true);
+        LoadLevel(StartingLevel-1, true);
     }
 
     public void LoadLevel(int levelIndex, bool skipLoadingScene = false)
