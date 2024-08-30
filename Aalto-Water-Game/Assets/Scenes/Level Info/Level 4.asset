@@ -16,5 +16,5 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 2
   RequiredTileNumber: 1
   ResourcesAvailable: 120
-  LevelHint: Arrange the structures such that the goals are completed, here make
-    atleast 35 tiles turn Grass
+  LevelHint: Arrange the structures such that the goals are completed, here turn
+    at least 35 tiles into Grass

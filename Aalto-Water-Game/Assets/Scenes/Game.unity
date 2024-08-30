@@ -4345,7 +4345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLevelIndex: 0
   TargetTileNumber: 0
-  StartingLevel: 1
+  StartingLevel: 8
   LevelInfoSOList:
   - {fileID: 11400000, guid: 4af1df58d4fe0c74eb7cde0c22b5496f, type: 2}
   - {fileID: 11400000, guid: e3171f9f7b0b0fc49aee7c7eabca89bc, type: 2}
@@ -4357,6 +4357,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c67b271d32e493e4b88887ba937edbec, type: 2}
   - {fileID: 11400000, guid: a0c491f9aa74af6468885bad266d7c0d, type: 2}
   - {fileID: 11400000, guid: c372d40db7ccca640a88c9281b910fd4, type: 2}
+  - {fileID: 11400000, guid: 53974b74e17d92a459df448cee51dd06, type: 2}
   CurrentLevelInfoSO: {fileID: 0}
 --- !u!1 &1720667859
 GameObject:
@@ -4877,11 +4878,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wonderful! The world has an environmental capacity (point system) for placing
-    structures. Strategically place structures to turn tiles green before exhausting
-    the environmental capacity. Each desalinator costs -30 points, each sprinkler
-    costs -10 points, and each reservoir costs -20 points. Use the buildings to convert
-    25 tiles to grass using 120 EC.
+  m_text: Thanks for playing Salty Island Demo!<br><br><u>A game by Silly Birds Studio:</u><br>Blaer
+    Zhang<br>Gianluca Zoni<br>Michelle Lauriste<br>Raffaele Fiorillo<br>Vedsri Sah
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7740ddb25f6dbb540a8c37b7a06a9741, type: 2}
   m_sharedMaterial: {fileID: 4258503736843029533, guid: 7740ddb25f6dbb540a8c37b7a06a9741, type: 2}

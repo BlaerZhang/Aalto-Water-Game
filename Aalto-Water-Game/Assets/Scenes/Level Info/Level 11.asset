@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f357d65ba52401948bd436f4b1de0366, type: 3}
-  m_Name: Level 5
+  m_Name: Level 11
   m_EditorClassIdentifier: 
   RequiredTileType: 1
   RequiredBuildingTypeIfRequiringBuilding: 1
-  RequiredTileNumber: 25
-  ResourcesAvailable: 150
-  LevelHint: Arrange the structures such that the goals are completed, here turn
-    at least 25 tiles into Grass
+  RequiredTileNumber: 1000
+  ResourcesAvailable: 999
+  LevelHint: Thanks for playing Salty Island Demo!<br><br><u>A game by Silly Birds
+    Studio:</u><br>Blaer Zhang<br>Gianluca Zoni<br>Michelle Lauriste<br>Raffaele
+    Fiorillo<br>Vedsri Sah
