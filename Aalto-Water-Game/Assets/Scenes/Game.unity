@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &32099225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -200, y: -100}
-  m_SizeDelta: {x: 300, y: 429.97}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &32099226
 MonoBehaviour:
@@ -495,10 +495,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 32099225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -20}
-  m_SizeDelta: {x: 260, y: 389.97}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
+  m_SizeDelta: {x: 260, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &124937573
 MonoBehaviour:
@@ -520,9 +520,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=30><b><u>Reservoir</u></b></size><br>Stores consumable water to
-    supply further\r<br><br>Can only be placed on a tile with atleast 4 adjacent
-    Grass tiles\r<br><br>Can supply water to 2-3 Sprinklers"
+  m_text: <size=30><b><u>Sprinkler</u></b></size><br>Works when in 2 tile range of
+    consumable water (Desalinator / Reservoir) <br><br>Distributes water in a fix
+    range, to covert dirt into grass
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae6a7f0c524a311458ee0237d2bb51a8, type: 2}
   m_sharedMaterial: {fileID: 2453251283709532837, guid: ae6a7f0c524a311458ee0237d2bb51a8, type: 2}
@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e62a2c4bf86994e99607a6587ec6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipText: <size=30><b><u>Desalinator</u></b></size><br>Can only be placed adjacent
+  tooltipText: <size=30><b><u>Desalinator</u></b></size><br>Only works when is adjacent
     to a Sea tile <br><br>Converts Salty sea water into consumable water<br><br>Capacity
     to supply 2 sprinklers
 --- !u!1 &1322868888
@@ -3747,8 +3747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: <size=30><b><u>Reservoir</u></b></size><br>Stores consumable water
-    to supply further <br><br>Can only be placed on a tile with atleast 4 adjacent
-    Grass tiles <br><br>Can supply water to 2-3 Sprinklers
+    to supply further <br><br>Only works on a tile with at least 4 adjacent Grass
+    tiles <br><br>Can supply water to 2-3 Sprinklers
 --- !u!1 &1667384605
 GameObject:
   m_ObjectHideFlags: 0
