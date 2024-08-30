@@ -1,0 +1,23 @@
+import csv
+
+def invert_csv_horizontally(input_csv_path, output_csv_path):
+    # Read the CSV file
+    with open(input_csv_path, 'r') as input_file:
+        reader = csv.reader(input_file)
+        rows = list(reader)
+
+    # Invert each row horizontally
+    inverted_rows = [row[::-1] for row in rows]
+
+    # Write the inverted rows to a new CSV file
+    with open(output_csv_path, 'w', newline='') as output_file:
+        writer = csv.writer(output_file)
+        writer.writerows(inverted_rows)
+
+    print(f"Horizontally inverted CSV saved to {output_csv_path}")
+
+if __name__ == "__main__":
+    # Example usage
+    input_csv_path = "level_csv_11.csv"
+    output_csv_path = "inverted_output.csv"
+    invert_csv_horizontally(input_csv_path, output_csv_path)
