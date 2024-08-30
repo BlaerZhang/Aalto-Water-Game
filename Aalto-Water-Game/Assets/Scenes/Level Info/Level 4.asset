@@ -16,5 +16,6 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 2
   RequiredTileNumber: 1
   ResourcesAvailable: 120
-  LevelHint: Arrange the structures such that the goals are completed, here turn
-    at least 35 tiles into Grass
+  LevelHint: Excellent! Now, add a reservoir to store water for later use. Place
+    a reservoir on any tile with 4 adjacent grass tiles. This reservoir will supply
+    water to 2 sprinklers when the desalinator is unable to.
