@@ -21,7 +21,12 @@ public class UIManager : MonoBehaviour
     private BuildingType _buildingType;
     
     public static Action<BuildingType> OnSelectedBuildingTypeChanged;
-    
+
+    /// <summary>
+    /// This flag defines if the left click defines an action of Creating a Building (true) or Removing a Building (false)
+    /// </summary>
+    public static bool IsCreateBuildingMode = true;
+
     public List<GameObject> BuildingButtonList;
 
     public GameObject BuildingTooltip;

@@ -54,8 +54,11 @@ public class CursorManager : MonoBehaviour
     }
 
     void OnCursorClickOnTile(Vector2 tilePosition, bool isPlaceable)
-    {
-        if (isPlaceable) GameManager.Instance.MapManager.PlaceBuilding(tilePosition);
+    {   
+        if (!UIManager.IsCreateBuildingMode)
+            GameManager.Instance.MapManager.RemoveBuilding(tilePosition);
+        else if (isPlaceable) 
+                GameManager.Instance.MapManager.PlaceBuilding(tilePosition);
         else
         {
             //feedback
