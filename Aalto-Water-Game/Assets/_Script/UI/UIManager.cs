@@ -92,8 +92,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateObjective(int targetTileNumber, TileType targetTileType, BuildingType targetBuildingType = BuildingType.Dessalinator)
     {
-        if (targetTileType == TileType.Building) Objective.text = $"Build at least <b>{targetTileNumber}</b> functional <b>{targetBuildingType}</b>";
-        else Objective.text = $"Convert at least <b>{targetTileNumber}</b> tiles into <b>{targetTileType}</b>";
+        string color = "#1362c8";
+        if (targetTileType == TileType.Building) Objective.text = $"Build at least <color={color}>{targetTileNumber}</color> functional <color={color}>{targetBuildingType}</color>";
+        else Objective.text = $"Convert at least <color={color}>{targetTileNumber}</color> tiles into <color={color}>{targetTileType}</color>";
     }
 
     public void UpdateLevelHint(string hint)
@@ -115,11 +116,11 @@ public class UIManager : MonoBehaviour
     {
         BuildingTooltip.GetComponentInChildren<TMP_Text>().text = tooltipText; // Set text
         BuildingTooltip.GetComponent<RectTransform>().DOAnchorPosY(anchoredPosY, 0f); // Set Y Pos
-        BuildingTooltip.SetActive(true);
+        BuildingTooltip.transform.DOScale(1, 0.25f).SetEase(Ease.OutElastic, 1, 0.1f);
     }
     public void HideTooltip()
     {
-        BuildingTooltip.SetActive(false);
+        BuildingTooltip.transform.DOScale(0, 0.1f);
     }
 
     public void ShowEndScreen(bool winning)
