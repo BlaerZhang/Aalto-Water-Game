@@ -16,4 +16,4 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 1
   RequiredTileNumber: 50
   ResourcesAvailable: 280
-  LevelHint: Make 50 grass tiles
+  LevelHint: 
