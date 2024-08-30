@@ -4345,7 +4345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLevelIndex: 0
   TargetTileNumber: 0
-  StartingLevel: 8
+  StartingLevel: 1
   LevelInfoSOList:
   - {fileID: 11400000, guid: 4af1df58d4fe0c74eb7cde0c22b5496f, type: 2}
   - {fileID: 11400000, guid: e3171f9f7b0b0fc49aee7c7eabca89bc, type: 2}

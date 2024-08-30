@@ -16,5 +16,5 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 1
   RequiredTileNumber: 15
   ResourcesAvailable: 100
-  LevelHint: The water distributed from sprinkler converts Dirt tiles into Grass
-    tiles. The tiles within the sprinkler range have possibility to convert
+  LevelHint: Great! Now, convert at least 10 tiles to grass by placing desalinators
+    and sprinklers.

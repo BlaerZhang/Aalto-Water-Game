@@ -16,5 +16,8 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 1
   RequiredTileNumber: 25
   ResourcesAvailable: 150
-  LevelHint: Arrange the structures such that the goals are completed, here turn
-    at least 25 tiles into Grass
+  LevelHint: Wonderful! The world has an environmental capacity (point system) for
+    placing structures. Strategically place structures to turn tiles green before
+    exhausting the environmental capacity. Each desalinator costs -30 points, each
+    sprinkler costs -10 points, and each reservoir costs -20 points. Use the buildings
+    to convert 25 tiles to grass.

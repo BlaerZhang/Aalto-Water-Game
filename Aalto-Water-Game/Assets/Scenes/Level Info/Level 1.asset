@@ -16,5 +16,4 @@ MonoBehaviour:
   RequiredBuildingTypeIfRequiringBuilding: 0
   RequiredTileNumber: 1
   ResourcesAvailable: 60
-  LevelHint: Desalinators convert Sea water to consumable water. It only works on
-    the edge tile where island and sea meet.
+  LevelHint: Place the desalinator near the sea to produce clean drinking water.
