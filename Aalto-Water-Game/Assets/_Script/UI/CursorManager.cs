@@ -45,7 +45,7 @@ public class CursorManager : MonoBehaviour
     {
         transform.position = tilePosition;
         _spriteRenderer.color = placeable ? new Color(0,1,0,0.7f) : new Color(1,0,0,0.7f); //set color based on placeable state
-        _spriteRenderer.enabled = display;
+        _spriteRenderer.enabled = display && UIManager.IsCreateBuildingMode;
     }
 
     void ChangeCursor(BuildingType buildingType)

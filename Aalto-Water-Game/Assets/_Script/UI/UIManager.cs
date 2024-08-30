@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
 
     public Image Mask;
 
+    public Image BuildingModeMask;
+
     [Header("End Screen")]
     public GameObject levelCompleteScreen;
     public GameObject levelFailedScreen;
@@ -138,6 +140,12 @@ public class UIManager : MonoBehaviour
     {
         levelCompleteScreen.SetActive(false);
         levelFailedScreen.SetActive(false);
+    }
+
+    public void SwitchBuildMode()
+    {
+        IsCreateBuildingMode = !IsCreateBuildingMode;
+        BuildingModeMask.gameObject.SetActive(!IsCreateBuildingMode);
     }
 
     public void LoadNextLevel(bool reload = false)

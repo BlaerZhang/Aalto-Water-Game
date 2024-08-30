@@ -86,6 +86,10 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.UIManager.UpdateLevelHint(CurrentLevelInfoSO.LevelHint); //Update level hint
         GameManager.Instance.UIManager.UpdateLevelText(CurrentLevelIndex + 1); //Update level text
         
+        //Reset build mode
+        UIManager.IsCreateBuildingMode = true; 
+        GameManager.Instance.UIManager.BuildingModeMask.gameObject.SetActive(false);
+        
         //Generate Map
         GameManager.Instance.MapManager = FindObjectOfType<MapManager>();
         Dictionary<Vector2Int, TileType> mapAsDictionary = CSVReader.ReadCSV(levelIndex, out int mapWidth, out int mapHeight);
