@@ -118,7 +118,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        Score.DOText($"Your Score: {score}", 0.25f, true, ScrambleMode.All);
+        Score.DOText($"{score}", 0.5f, true, ScrambleMode.Numerals);
     }
 
     public void ShowTooltip(float anchoredPosY, string tooltipText)
