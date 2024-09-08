@@ -47,6 +47,8 @@ public class UIManager : MonoBehaviour
 
     public Image BuildingModeMask;
 
+    public GameObject pauseMenu;
+
     [Header("End Screen")]
     public GameObject levelCompleteScreen;
     public GameObject levelFailedScreen;
@@ -134,6 +136,11 @@ public class UIManager : MonoBehaviour
     {
         if (winning) levelCompleteScreen.SetActive(true);
         else levelFailedScreen.SetActive(true);
+    }
+
+    public void ShowPauseMenu(bool state)
+    {
+        pauseMenu.SetActive(state);
     }
 
     public void HideEndScreen()

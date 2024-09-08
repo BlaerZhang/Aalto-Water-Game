@@ -35,4 +35,16 @@ public class GameManager : MonoBehaviour
         LevelManager = GetComponentInChildren<LevelManager>();
         AudioManager = GetComponentInChildren<AudioManager>();
     }
+
+    public void PauseGame(bool resume)
+    {
+        Time.timeScale = resume ? 1 : 0;
+        UIManager.ShowPauseMenu(!resume);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Start Screen");
+        Destroy(gameObject);
+    }
 }
